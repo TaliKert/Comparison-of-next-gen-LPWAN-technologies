@@ -9,3 +9,4 @@ src/*.tdo
 src/*.toc
 src/*.aux
 src/*.synctex.gz
+*.iml
