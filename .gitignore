@@ -1,0 +1,11 @@
+.idea/
+out/
+auxil/
+mainbkup/
+src/*.pdf
+src/*.log
+src/*.out
+src/*.tdo
+src/*.toc
+src/*.aux
+src/*.synctex.gz
