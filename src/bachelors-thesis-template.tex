@@ -393,7 +393,7 @@ Vangelista iseloomustab seda kui sagedusnihkega sirtsmodulatsiooni, sest bitivoo
 LoRa võimaldab saatjatel vabalt valida laotustegurit (ingl spreading factor), saavutamaks paremat signaali robustsust andmekiiruse arvelt~\cite{loramodulation}.
 Laotustegur on parameeter signaali bitikiiruse arvutamisel ehk teisisõnu määrab see aja, mis kulub ühe sümboli saatmiseks — suurendades laotustegurit on saadetavad sirtsud venitatud pikema aja peale ning kaotatakse kiiruses, seevastu piisab andmete edukaks demoduleerimiseks nõrgemast signaalist.
 Oulu ülikoolilinnakus läbi viidud katsete kohaselt on LoRa seadmed võimelised suhtlema laotusteguri suurenedes \SI{-116}{\deci\belm} kuni \SI{-137}{\deci\belm} signaalitugevustel~\cite{petajajarvi}.
-Laotustegur on täisarv vahemikus 7--12 ning vastavad tavapärases \SI{125}{\kilo\hertz} kanalis 0,3--27 kbps andmekiirustele~\cite{adelanto}.
+Laotustegur on täisarv vahemikus 7--12 ning vastavad tavapärases \SI{125}{\kilo\hertz} kanalis 27--0,3 kbps andmekiirustele~\cite{adelanto}.
 
 LoRaWAN rõhub lihtsusele ja paindlikkusele, kasutades tähekujulist topoloogiat ning sümmeetrilist signaali üles- ja allalink suhtluseks, mis võimaldab sama riistvara kasutada nii pääsupunkti kui lõppseadme rollis~\cite{lorawanIntro}.
 Protokoll on üksikasjalikult kirjeldatud avalikus LoRaWANi spetsifikatsioonis~\cite{lorawanspec}, mistõttu on kõigil võimalik luua universaalselt ühilduvaid seadmed või koguni omaenda võrk.
@@ -435,7 +435,28 @@ Eestis pakub NB-IoT leviala ainsana Telia, lubades katta kogu Eesti~\cite{nbteli
 \subsubsection{Muud tehnoloogiad}
 
 \subsection{Seotud tööd}
-\TODO{Sarnased võrdlevad tööd (nimekiri docsis)}
+LPWAN on uus ja kiiresti arenev võrkude klass ning iga järjekordse tehnoloogia tulekuga põhjendab tihenev konkurents vajadust neid võrrelda ja verifitseerida.
+Võrdlevate uurimuste hulka kuuluvad enamjaolt erinevaid tehnoloogiaid kõrvutavad kirjandusülevaated ning simulatsioonimudeli analüüsid.
+Käesolevaga analoogilisi töid, kus kõrvutatakse mitut tehnoloogiat katselisel meetodil, on vähe publitseeritud.
+Sealhulgas ei leidu autorile teadaolevalt analüüse, mis looks seoseid välikatsete tulemuste ja erinevate kasutusmallide vahel.
+
+%Enamasti on tehtud katseid korraga ühel tehnoloogial, kontrollides selle sobivust mingile kindla kasutusmallile või keskkonnale.
+%Petäjäjärvi jt~\cite{petajajarvi} kaardistavad selleks LoRaWAN signaali kvaliteeti ühe ülikoolilinnaku siseruumides, mängides läbi seadme kasutamist tervisenäitajate saatmiseks.
+%Teisel juhul katsetatakse tehnoloogiat, et leida selle piirjuhud saavutatava levi osas, nagu teevad seda Kalfus ja Hégr~\cite{kalfus2016ultra} Sigfoxi näitel.
+%Kõikidel juhtudel on olulisim küsimus signaali levimine reaalsetes oludes, mõõtes signaalitugevust, signaali . Seda
+
+Olulisimad katsed on need, mis annavad ettekujutuse tehnoloogia piirjuhtudest saavutatava levi osas.
+Selliseid töid tehakse üldiselt ühele tehnoloogiale keskendudes -- LoRaWAN puhul näiteks Petäjärvi jt välis-~\cite{petajajarvi2015coverage} ja sisetingimuste~\cite{petajajarvi} levianalüüsid ning analoogiliselt Kalfuse ja Hégri~\cite{kalfus2016ultra} Sigfoxi võrgu testimine.
+Kõikidel juhtudel on põhiline küsimus signaali levimine reaalsetes oludes, mõõtes selleks signaalitugevust (RSSI), signaali ja müra suhet (SNR) ja kaotatud pakettide osakaalu.
+Ka käesolev töö
+
+%Del Campo jt~\cite{del2019hybrid} monitoorivad LoRaWAN ja Sigfox sensorite paralleelset kasutust ühes elektrivõrgu rakenduses, tehed
+
+%Tsavalose ja Hashemi magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, mida käsitleb ka käesolev töö, kuid katsetustes valitakse neist välja vaid Sigfox.
+%Kuigi autorite teostus sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
+
+
+%Käesolevas töös vaadeldavaid tehnoloogiaid lahatakse kitsamalt Mroue jt poolt keskendudes meediumipöördusele, Coman jt tehnoloogiate turvalisusele.
 \TODO{uudsus}
 
 \newpage
