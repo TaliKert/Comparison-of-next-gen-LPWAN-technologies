@@ -118,6 +118,9 @@
 % Nice Todo box
 \newcommand{\TODO}{\todo[inline]}
 
+% non breaking dashes
+\usepackage[shortcuts]{extdash}
+
 %%% BEGIN DOCUMENT
 \begin{document}
 
@@ -272,7 +275,7 @@ Populaarseimad LPWAN tehnoloogiad on Sigfox, LoRa, NB-IoT, LTE-M, Ingenu ja Weig
 
 Kuigi tehnoloogiad on orienteeritud ühele niššile, erinevad need oma tehnilise spetsifikatsiooni ja võimekuse poolest märkimisväärselt.
 Uurimistöö eesmärk on hinnata Tartus kättesaadavate teenuste sobivust erinevatele LPWANide kasutusmallidele.
-Selline ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid ei saa lubada ulatuslikku eeltööd võrkude testimiseks.
+Selline ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid ei saa lubada ulatuslikku eeltööd erinevate võrkude testimiseks oma vajaduste põhiselt.
 
 Uuringu meetod on riistvara katsetamine, mille käigus mängitakse läbi iga võrgu lõppseadme käitumine erinevates raskendatud levi ja ligipääsuga paikades.
 %Seetõttu on uurimus väärtuslik ülevaade konkureeruvate tehnoloogiate reklaamitava jõudluse kõrvutamisest tegelikuga.
@@ -325,13 +328,13 @@ Staatilisi sensoreid saab linnapildis rakendada näiteks prügikonteinerite täi
 GPRS baasil kaugloetavad elektriarvestid on Eesti kodudes kohustuslikud alates 2017. aastast~\cite{laurit} ning 2021. aastaks peavad välja vahetatud olema ka küttegaasi arvestid~\cite{gaas}.
 Sealjuures on raskendatud leviga kortermajade või keldrite arvestid enamasti ühendatud kontsentraatoritega, mis kannavad andmed traadita andmesideks sobivamasse keskkonda.
 
-Staatiliste seadmete kõrval on olulisel kohal ka mobiilsed rakendused, mis eelnevale sarnaselt monitoorivad ennast kandvat sõidukit või looma, või on hoopis positsioneerimise otstarbega.
+Staatiliste seadmete kõrval on olulisel kohal ka mobiilsed rakendused, mis eelnevale sarnaselt monitoorivad ennast kandvat sõidukit või looma.
 Väikseid akutoitega seadmeid on kerge kinnitada loomale või inimesele, et saada automaatseid tervisenäitajaid loomapidamises~\cite{germani, liliu} või tervishoius~\cite{olatinwo, petajajarvi}.
-Samuti on mis tahes objektide koordinaatide raporteerimine GNSS mooduli abil potentsiaalne kasutusala LPWAN põhiseks positsioneerimiseks, mille potentsiaali on demonstreeritud jalgrattaringluse kontekstis~\cite{kimpark} või dementse inimese leidmiseks~\cite{hadwen}.
+Samuti on mis tahes objektide koordinaatide raporteerimine GPS mooduli abil potentsiaalne kasutusala LPWANi põhiseks positsioneerimiseks, mille potentsiaali on demonstreeritud jalgrattaringluse kontekstis~\cite{kimpark} või dementse inimese leidmiseks~\cite{hadwen}.
 Liikuvate seadmete ohud väljenduvad erijuhtudena, kui seadmed liiguvad levialast välja või satuvad läbistamatute takistuste taha ja andmeside katkeb, mistõttu kasutatav tehnoloogia peab olema piisavalt robustne ja laia katvusega.
 
 Kusuda ja Iwata esitavad idee liigutada hoopis tugijaamu paiksete lõppseadmete suhtes~\cite{kusuda}.
-Potentsiaalsete otstarvetena pakuvad autorid välja: prügiauto ja prügikastide vahelist suhtlust, et optimeerida korjeteekonda, drooniga pestitsiidide kasutuse tuvastamine ülisuurelt alalt ja kullerteenuse-majapidamise vaheline eelhoiatus, kui auto jõuab naabruskonda.
+Potentsiaalsete otstarvetena pakuvad autorid välja: prügiauto ja prügikastide vahelist suhtlust, et optimeerida korjeteekonda, drooniga pestitsiidide kasutuse tuvastamine ülisuurelt alalt ning kulleri ja majapidamise vaheline eelhoiatus, kui auto jõuab naabruskonda.
 Sellise süsteemi eelis on levi kindlustamine ettenähtud kohtades, samaaegselt lõppseadmetele pikka eluiga garanteerides.
 
 \subsection{Side optimeerimise meetodid}
@@ -411,7 +414,7 @@ TTN on tasuta LoRaWAN teenus mille leviala pakkujateks on vabatahtlikud üle maa
 
 \subsubsection{NB-IoT}
 
-Mobiilsidestandardite looja 3GPP avaldas 13. väljaandes spetsifikatsiooni mitmele IoT rakendustele suunatud tehnoloogiatele: eMTC (LTE-M), NB-IoT ja EC-GSM-IoT~\cite{3gppiot}.
+Mobiilsidestandardite looja 3GPP avaldas 13. väljaandes spetsifikatsiooni mitmele IoT rakendustele suunatud tehnoloogiatele: LTE-M, NB-IoT ja EC-GSM-IoT~\cite{3gppiot}.
 Xu jt~\cite{xuyao} hinnangul on tegemist mobiilside ettevõtete vastusega vaba sagedusala põhistele  LPWAN tehnoloogiatele, pakkudes sobilikku lahendust ka mobiilsidespektrisse.
 Nimetatud tehnoloogiatest on antud töö kontekstis märkimisväärseim NB-IoT, mis on disainitud töötama sügaval sisetingimustes ja maapiirkonna nurgatagustes~\cite{martinez}.
 
@@ -434,30 +437,44 @@ Eestis pakub NB-IoT leviala ainsana Telia, lubades katta kogu Eesti~\cite{nbteli
 
 \subsubsection{Muud tehnoloogiad}
 
+Kirjeldatud tehnoloogiad on töö kirjutamise hetkel kõige suurema mõju ja kajastusega LPWANid.
+Küll aga leidub sellesse võrguklassi pretendeerivaid tehnoloogiaid rohkem, osa neist mitte nii õnnestunuid ning osa alles populaarsust kogumas.
+
+Litsentseeritud sagedusalas leidub NB\-/IoTga samaaegselt loodud LTE\-/M, mille puhul on sarnaselt tegemist LTE vähendatud kujuga.
+Voolu säästmiseks kasutab tehnoloogia samu meetodeid, mis NB\-/IoT, kuid levivõimekus jääb tavalise LTE ja NB-IoT vahele~\cite{benhiba2018comparative}.
+Lauridseni jt~\cite{lauridsen2016coverage} võrdlusest avaldub, et efektiivne signaalitugevus on 8~dB nõrgem, kuid seevastu saavutatakse kuni 1~Mbps andmeedastuskiirus, utiliseerides tervelt 1,4 MHz laiust riba.
+LTE\-/M on seetõttu vähemoptimeeritum sügavates siseruumides töötamisele kui NB\-/IoT, kuid sobilik harvade kuid suuremate andmete ülekandeks, kui leviala seadmeni ulatab.
+
+Litsentseerimata sagedusalas
+
 \subsection{Seotud tööd}
 LPWAN on uus ja kiiresti arenev võrkude klass ning iga järjekordse tehnoloogia tulekuga põhjendab tihenev konkurents vajadust neid võrrelda ja verifitseerida.
 Võrdlevate uurimuste hulka kuuluvad enamjaolt erinevaid tehnoloogiaid kõrvutavad kirjandusülevaated ning simulatsioonimudeli analüüsid.
 Käesolevaga analoogilisi töid, kus kõrvutatakse mitut tehnoloogiat katselisel meetodil, on vähe publitseeritud.
 Sealhulgas ei leidu autorile teadaolevalt analüüse, mis looks seoseid välikatsete tulemuste ja erinevate kasutusmallide vahel.
 
+Eeskujulikuimad katsed on need, mis annavad ettekujutuse tehnoloogia piirjuhtudest saavutatava levi osas.
+Selliseid töid tehakse üldiselt ühele tehnoloogiale keskendudes -- LoRaWANi puhul näiteks Petäjärvi jt välis-~\cite{petajajarvi2015coverage} ja sisetingimuste~\cite{petajajarvi} levianalüüsid ning analoogiliselt Kalfuse ja Hégri~\cite{kalfus2016ultra} Sigfoxi võrgu testimine.
+Igas näites on põhiline küsimus signaali levimine reaalsetes oludes, mõõtes selleks signaalitugevust (RSSI), signaali ja müra suhet (SNR) ning kaotatud pakettide osakaalu.
+Ka käesolev töö arvestab neid parameetreid hinnangute tegemisel, kuid asetab vähem rõhku katsete hulgale.
+
+Erinevaid tehnoloogiaid korraga on kirjanduses katsetatud mitmel põhjusel.
+Del Campo jt~\cite{del2019hybrid} monitoorivad LoRaWANi ja Sigfoxi sensoreid paralleelselt ühes targa elektrivõrgu rakenduses, võrreldes peamiselt RSSI ja SNRi muutumist ajas, kusjuures LoRaWANi leviala loodi omal käel ning Sigfoxi puhul katsetati olemasolevat teenusvõrku.
+Palju mitmekülgsema testimise teevad Sikora jt~\cite{sikora2019test}, kelle töö hõlmab nii laboratoorseid kui ka maastikukatsetusi LoRaWANi, Sigfoxi, NB-IoT ja MIOTYga.
+Kokkuvõtvalt on näidatud iga tehnoloogia paketikadu erinevatelt kaugustelt tugijaamast, kuid katsekeskkond jääb suures osas kirjeldamata.
+
+Laiemalt arutleb valitud tehnoloogiate kasutusmallide sobivuse ja mittesobivuse üle Sjöström~\cite{sjostrom2017unlicensed} oma magistritöös.
+Diskussioon kaardistab hästi eeliseid ja puuduseid tehnoloogiate vahel ning toob välja kasutused, kus need nüansid kõige olulisemad on, tehes järeldusi vaid kirjanduse analüüsi põhjal.
+Käesolev töö on uudne, sest viib kokku kaks olulist poolt tehnoloogiate võrdlusel -- teenuste katsetamise ja tulemuste põhjal kasutustele sobivuse järeldamise, moodustades terviku aitamaks lugejal luua aimdus konkureerivate tehnoloogiate reaalsest potentsiaalist.
+
 %Enamasti on tehtud katseid korraga ühel tehnoloogial, kontrollides selle sobivust mingile kindla kasutusmallile või keskkonnale.
 %Petäjäjärvi jt~\cite{petajajarvi} kaardistavad selleks LoRaWAN signaali kvaliteeti ühe ülikoolilinnaku siseruumides, mängides läbi seadme kasutamist tervisenäitajate saatmiseks.
 %Teisel juhul katsetatakse tehnoloogiat, et leida selle piirjuhud saavutatava levi osas, nagu teevad seda Kalfus ja Hégr~\cite{kalfus2016ultra} Sigfoxi näitel.
 %Kõikidel juhtudel on olulisim küsimus signaali levimine reaalsetes oludes, mõõtes signaalitugevust, signaali . Seda
 
-Olulisimad katsed on need, mis annavad ettekujutuse tehnoloogia piirjuhtudest saavutatava levi osas.
-Selliseid töid tehakse üldiselt ühele tehnoloogiale keskendudes -- LoRaWAN puhul näiteks Petäjärvi jt välis-~\cite{petajajarvi2015coverage} ja sisetingimuste~\cite{petajajarvi} levianalüüsid ning analoogiliselt Kalfuse ja Hégri~\cite{kalfus2016ultra} Sigfoxi võrgu testimine.
-Kõikidel juhtudel on põhiline küsimus signaali levimine reaalsetes oludes, mõõtes selleks signaalitugevust (RSSI), signaali ja müra suhet (SNR) ja kaotatud pakettide osakaalu.
-Ka käesolev töö
-
-%Del Campo jt~\cite{del2019hybrid} monitoorivad LoRaWAN ja Sigfox sensorite paralleelset kasutust ühes elektrivõrgu rakenduses, tehed
-
 %Tsavalose ja Hashemi magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, mida käsitleb ka käesolev töö, kuid katsetustes valitakse neist välja vaid Sigfox.
 %Kuigi autorite teostus sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
-
-
 %Käesolevas töös vaadeldavaid tehnoloogiaid lahatakse kitsamalt Mroue jt poolt keskendudes meediumipöördusele, Coman jt tehnoloogiate turvalisusele.
-\TODO{uudsus}
 
 \newpage
 \section{Keskkonna ülesseadmine}
