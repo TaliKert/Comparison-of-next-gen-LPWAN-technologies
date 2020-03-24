@@ -268,27 +268,31 @@ IoT, LPWAN, LoRaWAN, Sigfox, NB-IoT, teenusvõrkude võrdlus, kasutusmallid
 %\TODO{Why should anyone care?}
 %\TODO{What was my contribution?}
 %\TODO{What you are doing in each section (a sentence or two per section)}
-Nutistu üha suurem tähtsus äri- ja mugavusrakendustes põhjustavad ühest küljest võidujooksu uute lahenduste leiutamisele, teisest küljest võitluse tehnoloogiliste ja füüsiliste piirangutega.
-Üks sellistest pudelikaeladest hõlmab seadmetevahelist suhtlust (M2M), mille puhul tuleb valida olemasolevate sideprotokollide seast oma rakendusele sobivaim.
-Traadita andmeside tehnoloogiate seas on populaarsust kogumas uus klass — LPWAN (Low Power Wide Area Network), mis on mõeldud just rakendustele, mis eeldavad nii madalat voolutarvet kui laia leviala.
-Populaarseimad LPWAN tehnoloogiad on Sigfox, LoRa, NB-IoT, LTE-M, Ingenu ja Weightless.
 
-Kuigi tehnoloogiad on orienteeritud ühele niššile, erinevad need oma tehnilise spetsifikatsiooni ja võimekuse poolest märkimisväärselt.
-Uurimistöö eesmärk on hinnata Tartus kättesaadavate teenuste sobivust erinevatele LPWANide kasutusmallidele.
-Selline ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid ei saa lubada ulatuslikku eeltööd erinevate võrkude testimiseks oma vajaduste põhiselt.
+% TAUSTA LÜHIKIRJELDUS
+Nutistu üha suurem tähtsus äri- ja mugavusrakendustes põhjustavad ühest küljest võidujooksu uute IoT lahenduste leiutamisele, teisest küljest võitluse tehnoloogiliste ja füüsiliste piirangutega.
+Üks sellistest pudelikaeladest hõlmab seadmetevahelist suhtlust (\textit{Machine-to-Machine} ehk M2M), mille puhul tuleb arendajal valida olemasolevate sideprotokollide seast oma rakendusele sobivaim.
+Traadita andmeside tehnoloogiate seas on populaarsust kogumas uus klass — LPWAN (\textit{Low Power Wide Area Network} ehk madala voolutarbe ja laia ulatusega võrk), mis on mõeldud rakendustele, mis eeldavad nii madalat voolutarvet kui laia leviala.
+Konkureerivad tehnoloogiad -- Sigfox, LoRa, NB-IoT, LTE-M, Ingenu ja Weightless reklaamivad suurusjärgus kümneaastast aku eluiga ja kümnekilomeetrist levikaugust.
 
-Uuringu meetod on riistvara katsetamine, mille käigus mängitakse läbi iga võrgu lõppseadme käitumine erinevates raskendatud levi ja ligipääsuga paikades.
+Kuigi tehnoloogiad täidavad ühist nišši  pakkuda laiahaardelist ja usaldusväärset ühenduvust ressursinappusega seadmetele, erinevad need oma võimekuse poolest märkimisväärselt.
+Uurimistöö eesmärk on hinnata Tartus kättesaadavate teenuste sobivust erinevatele asjade interneti kasutusmallidele, milleks võib olla näiteks tark arvesti kortermaja keldris või turvasüsteem maakodule.
+Selline ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid ei saa lubada eeltööd erinevate võrkude testimiseks oma vajaduste põhiselt.
+
+Uuringu meetod on riistvara katsetamine, mille käigus mängitakse läbi lõppseadme käitumine erinevates raskendatud levi ja ligipääsuga paikades.
+Katseid viiakse läbi kolme Tartus kättesaadava LPWAN-tehnoloogial põhineva teenuse peal: Levikomi NORAnet, Connected Balticsi Sigfox ja Telia NB-IoT.
+Nendele lisaks demonstreeritakse ka oma LoRaWAN võrgu loomist ning seda katsetatakse paralleelselt valmisvõrkudega.
 %Seetõttu on uurimus väärtuslik ülevaade konkureeruvate tehnoloogiate reklaamitava jõudluse kõrvutamisest tegelikuga.
 Eelkõige jälgitakse sidekanali võimekust kanda üle sõnumeid mittetäiuslikes oludes, võttes arvesse ka selleks kuluvat latentsi.
 Kasutusmallide omistamisel võetakse arvesse katseid maa- ja linnakeskkonnas, kus valitud olustikud kirjeldavad reaalseid töötingimusi lõppseadmetele.
 Katsed ei puuduta võrkude koormustaluvuse ega tehnoloogiate voolutarbe võrdlemist, samuti ei kaardistata täpset teenuste leviala, vaid piirdutakse piisava valimiga, mis annaks ettekujutuse halvimast juhust üksikule seadmele.
-Katsed toimuvad reaalsete teenusvõrkude peal, mistõttu pole kohane neid liigselt koormata.
+% Katsed toimuvad reaalsete teenusvõrkude peal, mistõttu pole kohane neid liigselt koormata.
 %, olemasoleva infrastruktuuri sobivust ning muid olulisi piiranguid tehnoloogiatel.
 
-Töö teoreetiline osa jaotub kaheks -- esimene neist lahkab LPWANide tausta ning teine eraldi tehnoloogiaid.
-Neljas peatükk hõlmab töö lahenduskäiku, alates kasutatava riistvara kirjeldusega ning lõpetades metoodika ja testimiste asukohavalikute põhjendustega.
-Viiendas peatükis koondatakse kokku ja visualiseeritakse olulisemaid tulemusi katsetelt.
-Kuuendas peatükis arutletakse teenuste sobilikkuse üle erinevatele kasutusmallidele.
+Teises peatükis antakse ülevaade teoreetilistest taustateadmistest, mis puudutavad asjade internetti, LPWAN tehnoloogiaid ja nende kasutusi.
+Kolmas peatükk hõlmab töö lahenduskäiku, alates kasutatava riistvara kirjeldusega ning lõpetades metoodika ja testimiste asukohavalikute põhjendustega.
+Neljandas peatükis koondatakse kokku ja visualiseeritakse olulisemaid katsetulemusi.
+Viiendas peatükis arutletakse teenuste sobilikkuse ja mittesobilikkuse üle erinevatele kasutusmallidele.
 
 \newpage
 \section{Tausta ülevaade}
@@ -445,7 +449,7 @@ Voolu säästmiseks kasutab tehnoloogia samu meetodeid, mis NB\-/IoT, kuid leviv
 Lauridseni jt~\cite{lauridsen2016coverage} võrdlusest avaldub, et efektiivne signaalitugevus on 8~dB nõrgem, kuid seevastu saavutatakse kuni 1~Mbps andmeedastuskiirus, utiliseerides tervelt 1,4 MHz laiust riba.
 LTE\-/M on seetõttu vähemoptimeeritum sügavates siseruumides töötamisele kui NB\-/IoT, kuid sobilik harvade kuid suuremate andmete ülekandeks, kui leviala seadmeni ulatab.
 
-Litsentseerimata sagedusalas
+\TODO{Litsentseerimata sagedusalas\ldots}
 
 \subsection{Seotud tööd}
 LPWAN on uus ja kiiresti arenev võrkude klass ning iga järjekordse tehnoloogia tulekuga põhjendab tihenev konkurents vajadust neid võrrelda ja verifitseerida.
@@ -472,85 +476,196 @@ Käesolev töö on uudne, sest viib kokku kaks olulist poolt tehnoloogiate võrd
 %Teisel juhul katsetatakse tehnoloogiat, et leida selle piirjuhud saavutatava levi osas, nagu teevad seda Kalfus ja Hégr~\cite{kalfus2016ultra} Sigfoxi näitel.
 %Kõikidel juhtudel on olulisim küsimus signaali levimine reaalsetes oludes, mõõtes signaalitugevust, signaali . Seda
 
-%Tsavalose ja Hashemi magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, mida käsitleb ka käesolev töö, kuid katsetustes valitakse neist välja vaid Sigfox.
-%Kuigi autorite teostus sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
+Tsavalose ja Hashemi~\cite{tsavalos2018low} magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, mida käsitleb ka käesolev töö, kuid katsetustes valitakse neist välja vaid Sigfox.
+Kuigi autorite võrdlemise idee sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
 %Käesolevas töös vaadeldavaid tehnoloogiaid lahatakse kitsamalt Mroue jt poolt keskendudes meediumipöördusele, Coman jt tehnoloogiate turvalisusele.
 
 \newpage
-\section{Keskkonna ülesseadmine}
+\section{Võrdlusmetoodika}
 
-Käesolevas peatükis tutvustatakse katsete läbi viimise keskkonda.
-Esimeses alapeatükis keskendutakse kasutatavale arendusplaadile, mis simuleerib lõppseadet IoT kontekstis.
-Seejärel kirjeldatakse teises peatükis alternatiivset lahendust LPWAN leviala tagamiseks, luues oma LoRaWANi tugijaam.
-Kolmandas peatükis kirjeldatakse katsete metoodikat--loetletakse üles testitavad teenused ning põhjendatakse mõõdetavaid parameetreid teenuste ja keskkondade lõikes.
+Erinevate kasutusmallide teostatavuse hindamiseks on plaanitud katseliselt hinnata tehnoloogiaid nende leviomaduste poolest.
+Teisisõnu taandatakse küsimus, "`Milleks tehnoloogia sobib?"', katsetele reaalsete tingimustega asukohtadest ühenduse loomisele.
+Tingimuste planeerimise eelduseks on, et need osutavad väljakutseks mõnele katsetavatest tehnoloogiatest ning pakuks võrdlusmomenti teistega.
+
+Paratamatult ei ole võimalik luua oma tugijaamu mitmele tehnoloogiale, näiteks Sigfoxi puhul selle suletud ökosüsteeemi tõttu või NB-IoT puhul reguleeritud sagedusala tõttu.
+Seetõttu kasututatakse teenuseid, mis omavad Tartu piirkonnas infrastruktuuri:
+\begin{itemize}
+    \item Sigfoxi ühenduvus tagatud Connected Balticsi poolt,
+    \item NB-IoT ühenduvus tagatud Telia poolt,
+    \item LoRaWANi puhul nii Levikomi NORAneti nimeline võrk kui ka ise tehtud tugijaam.
+\end{itemize}
+Valmisvõrke ja vaba sagedusala peab sealjuures heaperemehelikult kasutama.
+See tähendab katsete ajalist hajutamist, et mitte hõivata eetrit reaalsete rakenduste eest mõjualas.
+Omakorda kogu protsessi kulukuse tõttu ei saa kokkuvõttes teha niivõrd palju katseid, millega oleks võimalik ammendavalt analüüsida paketikadu või teenuste täpset leviala.
+
+Mõõdetavad parameetrid erinevad tehnoloogiate lõikes.
+Iga katse puhul on peamine, kas edukas üleslink ülekanne üldse toimub.
+Toimumise korral märgitakse üles iga ülekande RSSI ja selle vastu võtnud tugijaam.
+Sigfoxi ja LoRaWANi teenused võimaldavad veel lisaks saada ülekande SNR suhte, kuid Telia seda ei avalda.
+Seevastu on NB-IoT ainuke tehnoloogia, mille latentsi mõõtmine on põhjendatud, tulenevalt eDRXst, mis põhjustab varieeruvat latentsi.
+Ülejäänud tehnoloogiate latents on ennustatav ja mõõtmist ei vaja.
+
+Katsete skoobist jääb välja kõik, mis puudutab tehnoloogiate levivõimekusega mitteseonduvat: unetsüklite planeerimine, sidekanali koormusvõimekuse testimine ja seadme voolutarve.
+Lisaks ei rõhuda allalink suhtlusele, sest see on kasutatavatel tehnoloogiatel alati võimekam või võrdväärne üleslingile.
+
+Edasistes alampeatükkides tutvustatakse kasutatavat riistvara ja katsete läbi viimise keskkondi.
+Esimeses alampeatükis keskendutakse kasutatavale arendusplaadile, mis simuleerib lõppseadet IoT kontekstis.
+Seejärel kirjeldatakse alternatiivset lahendust LPWANi leviala tagamiseks, luues oma LoRaWANi tugijaam.
+Kolmandas alampeatükis kirjeldatakse katsealuseid tingimusi ja põhjendatakse tähtsamad häirivad tegurid iga keskkonna puhul.
 
 \subsection{Arendusplaat FiPy}
 
 Pycom toodab IoT arenduskomplekte, mis võimaldavad arendajatel hõlpsalt prototüüpida oma IoT lahendusi ning katsetada sealjuures erinevaid sidetehnoloogiaid.
-FiPy on ESP32 mikrokontrolleri põhine arendusplaat, mis on programmeeritav MicroPythonis ning on integreeritud mitme erineva LPWAN tehnoloogiaga: LoRa, Sigfox, NB-IoT ja LTE-M.
-Tootja tarnib oma tooted enda MicroPythoni raamistikega, mis sisaldab teeke iga tehnoloogia mugavaks käima saamiseks.
+FiPy on ESP32 mikrokontrolleri põhine arendusplaat, mis on programmeeritav MicroPythonis ning on integreeritud mitme erineva LPWANi tehnoloogiaga: LoRa, Sigfox, NB-IoT ja LTE\-/M.
+Tootja tarnib IoT arendusplaate oma MicroPythoni implementatsiooniga, mis sisaldab teeke tehnoloogiate mugavaks käitamiseks.
 
-Seadme programmeerimiseks, koodi käitamiseks ja toiteks kasutatakse laiendusplaati Expansion Board v3.1, mis võimaldab REPL keskkonna käitamist üle USB.
+Seadme programmeerimiseks, koodi käitamiseks ja toiteks kasutatakse laiendusplaati \textit{Expansion Board v3.1}, mis võimaldab REPL (\textit{read-eval-print loop}) keskkonna käitamist üle USB.
 Lisaks kuuluvad komplekti veel isotroopiline 868 MHz antenn Sigfoxi ja LoRa jaoks ning mobiilsideantenn NB-IoT jaoks.
-Testimiseks kasutatav seade on kujutatud joonisel 1.
+Testimiseks kasutatav seade on kujutatud joonisel~\ref{fig:fipy}.
+
+\begin{figure} [ht] %try to place the figure here (next option top of the page)
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{figures/fipy.jpg}
+        \caption{FiPy lõppseade mitme võrgu testimiseks.}
+        \label{fig:fipy}
+    \end{center}
+\end{figure}
 
 FiPy on katsetes lõppseadme rollis, ehk simuleerib üksikut IoT seadet suhtlemas iga uuritava LPWANi võrgu tugijaamadega.
 Lõppseadme vaatepunktist loob kirjeldatud kõik-ühes süsteem igati võrdsed tingimused katsete teostamiseks igale tehnoloogiale, arvestades järgmiseid asjaolusid:
 \begin{itemize}
     \item arendusplaat kasutab usaldusväärseid OEM modemeid,
-    \item kõik tehnoloogiad jagavad üht riistvara,
-    \item arendusplaat ei ületa sätestatud signaali võimsusi,
-    \item antennid on seadmele kalibreeritud, kusjuures Sigfox ja LoRa kasutavad sama antenni.
+    \item kõik modemid jagavad ühte mikrokontrollerit,
+    \item arendusplaat ei ületa sätestatud signaalivõimsusi,
+    \item antennid on seadmele kalibreeritud.
 \end{itemize}
-Katsete käigus kasutatakse lõppseadet, et luua side Sigfoxi, NORAneti, Telia NB-IoT ja isikliku LoRaWAN tugijaamaga strateegilistest kohtadest, mis on täpsemini kirjeldatud peatükis 4.3.
-Kasutatud Micropython kood on välja toodud lisades (Lisa 1).
+% Katsete käigus kasutatakse lõppseadet, et luua side Sigfoxi, NORAneti, Telia NB-IoT ja isikliku LoRaWAN tugijaamaga strateegilistest kohtadest, mis on täpsemini kirjeldatud peatükis 4.3.
+Kasutatud testskript välja toodud lisades (Lisa 1).
 
-\subsection{LoRaWAN tugijaam}
+\subsection{LoRaWANi tugijaam}
 
 Juhul kui ükski valmisvõrk ei ole rakenduseks sobilik, on võimalik luua isiklik LoRaWANi võrk või leviala.
 Esimese eelduseks on rakendusserver, milleks võib olla avalik võrk, nagu TTN või isiklikult hostitud LoRaWAN serveri implementatsioon.
 Oma levialaks on vajalik tugijaam, mis on ühelt poolt LoRaWANi sagedustel pidevalt kuulav LoRa seade ning teiselt poolt paketiedastaja, mis suhtleb rakendusserveriga ning edastab kuuldud pakette.
 Sellise paketiedastaja lihtsaimal kujul ehitamiseks on vaja LoRa transsiivermoodulit ning Internetivõimekusega mikrokontrollerit või Raspberry Pi-d.
-Sõltuvalt konfiguratsiooni populaarsusest on võrdlemisi lihtne oma riistvarale leida avalik koodirepositoorium, millega LoRaWAN spetsifikatsioonile vastav tugijaam üles seada.
+Sõltuvalt valitud konfiguratsiooni populaarsusest on võrdlemisi lihtne oma riistvarale leida avalik koodirepositoorium, millega LoRaWANi spetsifikatsioonile vastav tugijaam üles seada.
 
-Töö raames kasutatav seade on WiFi toega ESP32 mikrokontrolleri põhine arendusplaat “TTGO V1”, millel on Semtechi SX1276 LoRa transsiiver.
-Tugijaam on lisaks varustatud lühikese isotroopilise LoRa antenniga ja displeiga ning on koos akutoitega ilmastikukindlas karbis, et seda oleks lihtne välioludes rakendada (joonis ?).
-Mikrokontroller on programmeeritud avalikust repositooriumist laenatud koodiga, mis võimaldab tööajal kaudset konfigureerimist ja monitoorimist üle veebi (joonis ?).
+Töö raames kasutatav seade on WiFi toega ESP32 mikrokontrolleri põhine arendusplaat TTGO v1, millel on Semtechi SX1276 LoRa transsiiver.
+Tugijaam on lisaks varustatud lühikese isotroopilise LoRa antenniga ja displeiga ning on koos akutoitega ilmastikukindlas karbis, et seda oleks lihtne välioludes rakendada (joonis~\ref{fig:omatugijaam}).
+Mikrokontroller on programmeeritud avalikust repositooriumist laenatud koodiga, mis võimaldab tööajal kaudset konfigureerimist ja monitoorimist üle veebi.
 Rakendusserverina kasutab seade TTN avalikku võrku.
+
+\begin{figure} [htbp]
+    \begin{tabular}{c c}
+        \begin{minipage}{0.42\textwidth}
+            \includegraphics[width=\textwidth]{figures/ttn-jaam.jpeg}
+        \end{minipage}
+        &
+        \begin{minipage}{0.53\textwidth}
+            \includegraphics[width=\textwidth]{figures/ttn-jaama-liides.png}
+        \end{minipage}
+    \end{tabular}
+    \caption{Isiklik LoRaWANi tugijaam ja selle veebiliides.}
+    \label{fig:omatugijaam}
+\end{figure}
 
 Katsetugijaam on lihtsasti teisaldatav erinevatesse kohtadesse ning pääseb võrku läbi kaasasoleva WiFi pääsupunkti, mis on omakorda ühendatud LTE modemiga.
 Oluline on märkida, et tugijaam pole riistvarast tingitud piirangute tõttu täielikult LoRaWAN spetsifikatsioonile vastav ning on seetõttu sobiv vaid prototüüpimiseks.
 Erinevus täisväärtusliku tugijaamaga tuleneb transsiivermoodulist, mis on töökindel korraga teenindama vaid ühel kanalil ja laotusteguril.
-Sellise lahenduse mastaapne kasutamine võib liigselt koormata kitsast vahemikku 868 MHz sagedustel ning tekitada häireid teistele sama piirkonna LoRa rakendustele.
+Sellise lahenduse mastaapne kasutamine võib liigselt koormata kitsast vahemikku 868 MHz sagedusest ning tekitada ebaproportsionaalselt häireid teiste sama piirkonna LoRa rakenduste töös.
 Erinevus kajastub ka hinnaklassis — täisvõimekusega LoRa modemi maksumus on 50-300€, käesoleva hind umbes 5€.
 
-\subsection{Metoodika}
+\subsection{Katsete tingimused}
 
-\TODO{Täpne kirjeldus, mida testitakse, teenuste lõikes}
-Järgnevalt kirjeldatakse lühidalt, milliseid kasutusmalle erinevate tehnoloogiatega läbi mängitakse ning põhjendatakse katsete meetodeid.
+Järgnevalt kirjeldatakse läbi mängitavaid tingimusi.
 Huvi pakkuvaid kriteeriume kontrollitakse kolmes keskkonnas, mis on omakorda käsitletud eraldi alapeatükkides: maapiirkond, linnapiirkond ja liikuv tugijaam.
 
 \subsubsection{Maapiirkond}
 
-Käesolevas töös mõeldakse maapiirkonna all väiksema hoonestusega alasid, kus puuduvad side häirivate faktoritena kõrghooned jm, kuid leidub maastikku ja metsa.
-Keskendutakse eelkõige keskkonna- ja põllumajandusrakenduste kriteeriumitele: levikaugus ja teenuse kvaliteet nii tugijaama silmsidega kui silmsideta seadmetel.
+Maapiirkonna all mõeldakse väiksema hoonestusega alasid, kus peamiseks side häirivateks faktoriteks on pinnamood ja mets.
+Asukoha valikul keskendutakse eelkõige keskkonna- ja põllumajandusrakenduste kriteeriumidele: levikaugus ja teenuse kvaliteet nii tugijaama silmsidega kui -sideta seadmetel.
+
+Vaadeldav piirkond on marsruudil Tartu-Elva-Otepää, mis pakub mitmekesist maastikku testideks nõgudes ja küngastel.
+Suurimateks väljakutseteks on levi ulatumine pinnavormide taha ja maksimaalne distants.
+Katseteks on LoRaWANi tugijaam kinnitatud Tartu Lõunakeskuse seitsmekorruselise hoone katusele.
+
+Kõrvalepõikena tehakse valik katseid lõppseadme liikumiselt maanteekiirusel, et kontrollida tehnoloogiate vastupanu Doppleri efektile, ehk lainesageduse moondumist vastuvõtja poole liikudes, mille olulisust eriti Sigfoxi ülikitsasriba modulatsioonile on välja toonud Kalfus ja Hégr~\cite{kalfus2016ultra}.
 
 \subsubsection{Linnapiirkond}
 
 Linnapiirkonna puhul peetakse silmas tihedat asustust.
-Kontrollitakse targa linna keskseid rakendusi, kus lõppseadmed asetsevad kohtades nagu korterid, keldrid või on varjatud hoonete ja muude takistustega, mis mõjutavad signaali levi.
+Kontrollitakse targa linna keskseid rakendusi, kus lõppseadmed asetsevad kohtades nagu korterid, keldrid või tänavad, varjatud hoonete ja muude takistustega.
 Olulisemad kriteeriumid, mis annavad tehnoloogiale eelise on läbistavus ja peegeldumine.
 
-Piirkond hõlmab peamiselt Tartu Annelinna ja Jaamamõisa linnaosasid. Side luuakse varieeruvates sügavustest kortermajade varjust, kortermajade sisemustes ja keldrites.
+Piirkond hõlmab peamiselt Tartu Annelinna ja kesklinna linnaosi.
+Side luuakse varieeruvates sügavustest kortermajade varjust, hoonete sisemustes ja keldrites.
+LoRaWANi tugijaam on nendeks katseteks asetatud Tartu Tasku keskuse Plasku hoone katusele.
 
 \subsubsection{Liikuv tugijaam}
 
 Eraldiseisvalt uuritakse veel andmete kogumist transporditavalt tugijaamalt.
-Kasutatakse loodud tugijaama ning võetakse mõõtmisi maksimaalselt 200 meetrilt maapinnalt.
+Testide puhul näeb see ette nii tugijaama kui lõppseadme asetsemist maapinna ligidal või hoones.
+Selliste stsenaariumidega jäljendatakse väiksema piirkonna sensoritelt info kogumist näiteks autos asetseva tugijaama abil.
+
+Katses rakendatakse loodud LoRaWANi tugijaama kahes asukohas: korteri tualettruumi valamukapis veearvestil ja kortermaja prügikonteinerite läheduses.
+Raskendavad asjaolud vastavalt asukohale on ekstreemne läbistavus ja levi maapinnalt maapinnale erinevate takistustega.
 
 \newpage
 \section{Tulemused}
-\TODO{Siia ilmuvad katsete tulemused, kaardid ja tabelid}
+
+Katsete käigus on oluline meeles pidada erisusi teenuste teeninduspiirkondades.
+Erinevate meetodite abil on võimalik saada ettekujutus tugijaamade tegelikest asukohtadest, mis aitab edasisi mõõtmisi targemini tõlgendada.
+NB-IoT puhul aitas ühendatud sidemaste lokaliseerida \textit{Cellmapper}\footnote{https://www.cellmapper.net/map (22.03.2020)} keskkond, NORAnet veebiliides avaldab kätte saadud tugijaamade täpsed koordinaadid oma veebiliideses.
+Sigfoxi jaamade asukohad pole avalikult leitavad, kuid on umbkaudselt tuletatavad veebiliidesest kättesaadava levi kaardi abil.
+Joonisel~\ref{fig:tugijaamad} on kujutatud tugijaamad, millega saavutati ühendus üle kõikide katsete.
+
+\begin{figure} [ht]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{figures/tugijaamad.png}
+        \caption{Leitud tugijaamad.}
+        \label{fig:tugijaamad}
+    \end{center}
+\end{figure}
+
+Mastaapseimat kattuvust pakub Telia, mille infrastruktuur tugineb suuresti olemasolevatele LTE jaamadele, mis on seadistatud serveerima ka NB-IoTd.
+NORAnetil on kuus ning Sigfoxil viis tugijaama Tartu piirkonnas, mis on palju hõredam kui NB-IoTl.
+
+Maapiirkonnas tehti katseid 14 erinevast asukohast (joonis \ldots). Pelgalt ühenduse loomisega viieteistkümne kilomeetri raadiuses Tartu kesklinnast lõuna poole saavad eranditult hakkama NB-IoT ja Sigfox.
+Võttes arvesse NB-IoT jaamade hulka, on tagantjärele selge, et levialast välja sattumine on tugijaamade liiasuse ja teeninduspiirkondade kattuvuse tõttu väga keeruline.
+Selgemini saab võrrelda Sigfoxi ja NORAneti.
+Sügavamates nõgudes ja metsades esines NORAneti võrgus paketikadu ning mitmel korduskatsel oli näha, et side töötas oma võimekuse piiril, raporteerides -122 dBm vastuvõetud signaalitugevust ning SNR väärtusega -17 ehk raadiomüra tasemest 17-kordselt nõrgemat signaali.
+Sigfoxi puhul asetseb lävi palju kõrgemal -- kõige nõrgem saavutatud ülekanne antud raadiuses oli -132 dBm ning paketikadu ei täheldatud.
+
+Erinevalt kolmest teenusvõrgust, on oma tugijaama lahendusel vaid üks keskne pääsupunkt, mistõttu sai kontrollitumalt kombata levikauguse piire, ilma et seade mõne muu jaamaga haakuks.
+Silmsidega katsetel saavutati suurim distants 35 kilomeetri kaugusel asuvast Tehvandi suusahüppetornist ning ka nõlval, poole tee peal Pangodis.
+Samas vähegi reaalsemates oludes -- väiksemates metsatukkades, nõlvade varjus või majade vahel kadus side täielikult isegi seitsme kilomeetri raadiuses.
+
+Maanteekiirusel testides iga teenuse kindla leviala piires ei täheldatud liikumisest tingitud paketikadu.
+NB-IoT puhul avaldus probleem hoopis selle võimetusest haakida end implitsiitselt uue sidemasti külge, jõudes selle masti levialast välja, millega esmalt ühendati.
+Probleem väljendub enim selles, et haakimisprotseduur võttis üle kõikide katsete aega keskmiselt 20 sekundit, mis kergitab latentsi ning sellele eelnevalt puudub võimalus allalink sõnumiteks.
+
+Linnatänavatel oli paiku kokku seitse (joonis \ldots).
+LoRa puhul võis ka Annelinna majade vahel leida leviauke nii NORAneti kui oma tugijaamaga, kusjuures oma tugijaam kaotas side juba vähimagi hoonestuse varjega pooleteise kilomeetriselt distantsilt.
+Sigfoxi jaoks oli Annelinn tugijaamadega varustatavust arvestades keerulistes tingimustes, kuid sellegipoolest ei tuvastatud välitingimustes paketikadu isegi kui ühes asukohas küündis vastuvõetud signaalitugevus -141 dBm-ni.
+NB-IoT välitingimustel probleeme ei tekitanud ning üleslink latents püsis pidevalt 0,3--0,5 sekundi vahemikus.
+
+Katseid siseruumides tehti neljas linnasiseses asukohas.
+Tartu Ülikooli Delta hoone keldrikorrusel kaotasid täielikult signaali Sigfox ja kumbki LoRaWAN teenus.
+Samas kohas oli NB-IoTl raskusi võrku ühendumise protseduuriga, ning õnnestumisel küündis 16 baidise COAP paketi latents 1,17 sekundini.
+Deltas said Sigfox ja NORAnet oma levi tagasi alates esimesest korrusest.
+Oma tugijaamaga kommunikeerida ei õnnestunud, isegi kui see asus Plasku hoone katusel koos NORAneti tugijaamaga, millega omakorda side saavutati.
+Viimane viitab tõenäoliselt antenni erinevustele, milles Levikomi seadmetel on eelis.
+Kahes katsealuses paneelmaja keldris töötas NB-IoT tõrgeteta ja alla sekundilise latentsiga, Sigfoxi läbistusvõime oli samuti väga hea.
+Kesklinna kortermaja keldris oli NORAnet ainuke, mis ühendust ei loonud.
+
+LoRaWANi ja oma tugijaama lühikesel distansil proovides katsetati läbistavust nii hoones sees kui ka vabas õhus maapinnalt.
+Joonisel \ldots on kujutatud katseid kummagi tugijaama asetusega.
+Piki tänavat põhjapoole liikudes võimaldas veemõõtjat imiteeriv LoRa seade minna 415 meetri kaugusele, kuni esimese kurvini teel.
+Lõuna pool ehk kaugemast küljest oli distantsi võimalik suurendada vaid 100 meetrini, kuni ükski pakett isegi suurima laotusteguriga kohale ei jõudnud.
+Külgsuunas jõuti võimekuse piirini 350. meetril.
+Asetades seadme maja taha maapinnale, pikenes lõuna- ehk majataguses suunas distants 300 meetrini ning hoolimata vahetust takistusest kortermaja näol jäi põhjasuunal tulemus samaks.
+Külgsuunas, mis nüüd kannatas kannatas suurima varje ees ei levinud üle 200 meetri.
+
 \newpage
 \section{Diskussioon}
 \TODO{Siia ilmub arutlus/analüüs, mis tehnoloogia on sobiv erinevatele kasutusjuhtudele, milline ei sobi üldse jne. Ühtlasi ilmutatakse siin vastus uurimisküsimusele}
