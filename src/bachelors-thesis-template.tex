@@ -31,6 +31,42 @@
 % Suggested packages:
 \usepackage{microtype}  %towards typographic perfection...
 \usepackage{inconsolata} %nicer font for code listings. (Use \ttfamily for lstinline bastype)
+\usepackage{verbatim}
+
+
+% Proper way to create coloured code listings
+\usepackage{listings}
+\lstset{
+    language=python,
+    basicstyle=\scriptsize\ttfamily\linespread{1.2},          % the size of the fonts that are used for the code
+%    baselinestretch=1.1,
+    %numbers=left,                   % where to put the line-numbers
+    %numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,                    % the step between two line-numbers. If it's 1, each line
+    % will be numbered
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,                % show spaces adding particular underscores
+    showstringspaces=false,          % underline spaces within strings
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    frame = lines,
+    %frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},		   % if not set, the frame-color may be changed on line-breaks within
+    % not-black text (e.g. commens (green here))
+    tabsize=2,                       % sets default tabsize to 2 spaces
+    captionpos=b,                    % sets the caption-position to bottom
+    breaklines=true,                 % sets automatic line breaking
+    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+    %title=\lstname,                 % show the filename of files included with \lstinputlisting;
+    % also try caption instead of title
+    keywordstyle=\color{blue},       % keyword style
+    commentstyle=\color[HTML]{228B22},    % comment style
+    stringstyle=\color{mauve},       % string literal style
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+    morekeywords={*,game, fun}       % if you want to add more keywords to the set
+}
+
 
 \usepackage[english, estonian]{babel} %the thesis is in Estonian
 
@@ -102,9 +138,6 @@
 
 % Nice todo notes
 \usepackage{todonotes}
-
-% comments and verbatim text (code)
-\usepackage{verbatim}
 
 % units
 \usepackage{siunitx}
@@ -381,7 +414,7 @@
     Sigfox on 2010. aastal Prantsusmaa start-upi poolt loodud tehnoloogia, mis loojate visiooni kohaselt tagab ühenduse miljarditele IoT seadmetele, luues minimaalne telekommunikatsioonistandardi pisikeste sõnumite edastamiseks [15].
     Ettevõte pakub tehnoloogiat ja pilvekeskkonda komplektse teenusena.
 
-    Sigfox töötab Euroopas \SIrange{868.0}{868.2}{\mega\hertz} mittelitsentseeritud sagedusalas ning kasutab ülikitsaribalist (Ultra-Narrow-Band ehk UNB) side, milles iga üleslink ülekanne kasutab vaid 100-hertsi laiust riba~\cite{sigfoxtech}.
+    Sigfox töötab Euroopas \SIrange{868.0}{868.2}{\mega\hertz} mittelitsentseeritud sagedusalas ning kasutab ülikitsaribalist (\textit{Ultra-Narrow Band} ehk UNB) side, milles iga üleslink ülekanne kasutab vaid 100-hertsi laiust riba~\cite{sigfoxtech}.
     Kalfusi ja Hegri~\cite{kalfus2016ultra} hinnangul võimaldab UNB Sigfoxil teiste tehnoloogiate seas esile tõusta mürataluvuse ja saavutatava distantsi osas.
     Põhjuseks on, et kitsale vahemikule satub harvemini raadiohäireid, mis omakorda alandab üldist ülekande nurjumise tõenäosust ja laseb edukalt vastu võtta kuni \SI{-142}{\deci\belm} hääbunud signaali (RSSI).
     \SI{100}{\hertz} laiused sõnumid jaotatuna \SI{0,2}{\mega\hertz} ribale tähendab, et pääsupunkt kuulab samaaegselt ligi 2000 teoreetilisel vahemikul, pakkudes küllaldaselt ribalaiust samaaegseteks ülekanneteks ka kasutataval ALOHA mehhanismil.
@@ -402,9 +435,9 @@
     Protokolli edendaja on ülemaailmne mittetulundusühendus LoRa Alliance -- grupp ettevõtteid, kelle ühine eesmärk on luua üldine LPWAN digitaalne ökosüsteem, mis toetaks mastaapsete IoT lahenduste juurutamist litsenseerimata raadiosagedusvahemikes~\cite{loraalliance}.
 
     LoRa modulatsioon on firmaomane ning kuigi selle spetsifikatsiooni pole ametlikult avaldatud, on signaali analüüsitud mitmetes teadustöödes, sh Vangelista~\cite{vangelista} poolt.
-    Vangelista iseloomustab seda kui sagedusnihkega sirtsmodulatsiooni, sest bitivoogu kantakse üle sirtsudega (lühikeste tõusude ja langustega sageduses), mis on sümboliteks kodeeritud sagedushüpetega.
+    Vangelista iseloomustab seda kui sagedusnihkega sirtsmodulatsiooni, sest bitivoogu kantakse üle sirtsudega ehk lühikeste tõusude ja langustega sageduses, mis on sümboliteks kodeeritud sagedushüpetega.
 %Tema simulatsioonide kohaselt omab LoRa modulatsioon väiksemat bitiveategurit võrreldes digitaal-sagedusmodulatsiooniga.
-    LoRa võimaldab saatjatel vabalt valida laotustegurit (ingl spreading factor), saavutamaks paremat signaali robustsust andmekiiruse arvelt~\cite{loramodulation}.
+    LoRa võimaldab saatjatel vabalt valida laotustegurit (ingl \textit{spreading factor}), saavutamaks paremat signaali robustsust andmekiiruse arvelt~\cite{loramodulation}.
     Laotustegur on parameeter signaali bitikiiruse arvutamisel ehk teisisõnu määrab see aja, mis kulub ühe sümboli saatmiseks — suurendades laotustegurit on saadetavad sirtsud venitatud pikema aja peale ning kaotatakse kiiruses, seevastu piisab andmete edukaks demoduleerimiseks nõrgemast signaalist.
     Oulu ülikoolilinnakus läbi viidud katsete kohaselt on LoRa seadmed võimelised suhtlema laotusteguri suurenedes \SI{-116}{\deci\belm} kuni \SI{-137}{\deci\belm} signaalitugevustel~\cite{petajajarvi}.
     Laotustegur on täisarv vahemikus 7--12 ning vastavad tavapärases \SI{125}{\kilo\hertz} kanalis 27--0,3 kbps andmekiirustele~\cite{adelanto}.
@@ -420,7 +453,7 @@
 
     Avatud protokolli tõttu loob LoRaWAN unikaalse maastiku LPWAN teenustele.
     Eesti esimene ja suurim LoRaWAN teenusvõrk on Levikomi NORAnet, mille tugijaamad asuvad kõigis maakonnakeskustes~\cite{noranetuudis}.
-    Alternatiivselt võib kasutada kogukonnale tuginevat The Things Network (TTN) võrku, või hostida avaliku lähtekoodiga rakendusserverit nagu ChirpStack koos isiklike tugijaamadega.
+    Alternatiivselt võib kasutada kogukonnale tuginevat \textit{The Things Network} (TTN) võrku, või hostida avaliku lähtekoodiga rakendusserverit nagu ChirpStack koos isiklike tugijaamadega.
     TTN on tasuta LoRaWAN teenus mille leviala pakkujateks on vabatahtlikud üle maailma.
 
     \subsubsection{NB-IoT}
@@ -436,7 +469,7 @@
 
     Tehnoloogia pakub konkurentsi ka Sigfoxi ja LoRa robustsetele protokollidele.
     Analoogiliselt LoRaWANi “B”-klassile saab eDRX abil allalink valmidust ka ette planeerida, hoides muul ajal PSM režiimiga kordades kokku transsiiveri tööaega ja saavutada 10 aastast aku eluiga, kui saata päevas keskmiselt 200 baiti~\cite{wanglin}.
-    Modem otsustab side kvaliteedile vastavalt ise, kui suure energia ja koodikontrolliga eetrisse minna, parandades signaali levi raskestipääsetavates kohtades, kusjuures koodikontrolli funktsionaalsus sarnaneb LoRa laotusteguriga, pikendades latentsi robustsema side eest~\cite{martinez}.
+    Modem otsustab side kvaliteedile vastavalt ise, kui suure energia ja koodikontrolliga eetrisse minna, parandades signaali levi raskestipääsetavates kohtades, kusjuures koodikontrolli funktsionaalsus sarnaneb LoRa laotusteguriga, pikendades latentsi robustsema side arvelt~\cite{martinez}.
     Mozny jt~\cite{mozny} katsetustest tuleb välja, et tavapärastes oludes võib 500 baidise sõnumi latents küündida kuni seitsme sekundini, samas näitavad Martinez jt~\cite{martinez}, et kõige halvema levi korral pole välistatud kuni 270 sekundiline viivitus, mis võib osutuda probleemiks latentsitundlikele rakendustele.
     NB-IoT üleslink andmekiirus on keskmiselt 20 kbps mis on LPWAN rakendusteks piisav, samas on allalink andmevahetus ebasümmeetrilise side tõttu igast küljest parem ja litsenseeritud mobiilside spektri tõttu ei toimu sidekanalil üldjuhul suuremaid raadiohäireid ega põrkumisi~\cite{wanglin}.
 
@@ -444,48 +477,56 @@
     Esiteks on leviala juurutamine võimalik omistades ühe standardse 200kHz laiuse vahemiku olemasolevas LTE rakus teenindama NB-IoTd, mis tähendab, et tehnoloogia on lihtsasti integreeritav olemasolevatesse tugijaamadesse ja töötab paralleelselt LTEga.
     Teiseks ennustatakse, et riistvara ja tarkvara tarnimine on olemasolevatele LTE moodulite tootjatele lihtsam.
     Üleüldiselt on protokolli lihtsustatud, et alandada kiibistike keerukust ja omakorda riistvara maksumust~\cite{xuyao}.
-    Eestis pakub NB-IoT leviala ainsana Telia, lubades katta kogu Eesti~\cite{nbtelia}.
+    Eestis pakub NB-IoT teenust Elisa ja Telia, lubades katta kogu Eesti~\cite{nbtelia}.
 
     \subsubsection{Alternatiivsed tehnoloogiad}
 
     Kirjeldatud tehnoloogiad on töö kirjutamise hetkel kõige suurema mõju ja kajastusega LPWANid.
     Küll aga leidub sellesse võrguklassi pretendeerivaid tehnoloogiaid rohkem, osa neist mitte nii õnnestunuid ning osa alles populaarsust kogumas.
 
-    Litsentseeritud sagedusalas leidub NB\-/IoTga samaaegselt loodud LTE\-/M, mille puhul on sarnaselt tegemist LTE vähendatud kujuga.
+    Litsentseeritud sagedusalas leidub NB\-/IoTga samaaegselt loodud LTE\-/M, mille puhul on sarnaselt tegemist LTE vähendatud kujuga\todo{roaming}.
     Voolu säästmiseks kasutab tehnoloogia samu meetodeid, mis NB\-/IoT, kuid levivõimekus jääb tavalise LTE ja NB-IoT vahele~\cite{benhiba2018comparative}.
     Lauridseni jt~\cite{lauridsen2016coverage} võrdlusest avaldub, et efektiivne signaalitugevus on 8~dB nõrgem, kuid seevastu saavutatakse kuni 1~Mbps andmeedastuskiirus, utiliseerides tervelt 1,4 MHz laiust riba.
-    LTE\-/M on seetõttu vähemoptimeeritum sügavates siseruumides töötamisele kui NB\-/IoT, kuid sobilik harvade kuid suuremate andmete ülekandeks, kui leviala seadmeni ulatab.
+    LTE\-/M on seetõttu vähemoptimeeritum sügavates siseruumides töötamisele kui NB\-/IoT, kuid sobilik harvade kuid suuremate andmete ülekandeks, kui leviala seadmeni ulatub.
 
     \TODO{Litsentseerimata sagedusalas\ldots}
 
     \subsection{Sarnased uurimused}
     LPWAN on uus ja kiiresti arenev võrkude klass ning iga järjekordse tehnoloogia tulekuga põhjendab tihenev konkurents vajadust neid võrrelda ja verifitseerida.
     Võrdlevate uurimuste hulka kuuluvad enamjaolt erinevaid tehnoloogiaid kõrvutavad kirjandusülevaated ning simulatsioonimudeli analüüsid.
-    Käesolevaga analoogilisi töid, kus kõrvutatakse mitut tehnoloogiat katselisel meetodil, on vähe publitseeritud.
-    Sealhulgas ei leidu autorile teadaolevalt analüüse, mis looks seoseid välikatsete tulemuste ja erinevate kasutusjuhtude vahel.
+    Käesolevaga analoogilisi töid, milles kõrvutataks mitut tehnoloogiat katselisel meetodil, luues tulemuste alusel seoseid ka tehnoloogiate ja nende eelistatud kasutusjuhtudega on vähe publitseeritud.
 
-    Eeskujulikuimad katsed on need, mis annavad ettekujutuse tehnoloogia piirjuhtudest saavutatava levi osas.
+    Eeskujulikuimad empiirilised tööd on need, mis annavad ettekujutuse tehnoloogia piirjuhtudest saavutatava levi osas.
     Selliseid töid tehakse üldiselt ühele tehnoloogiale keskendudes -- LoRaWANi puhul näiteks Petäjärvi jt välis-~\cite{petajajarvi2015coverage} ja sisetingimuste~\cite{petajajarvi} levianalüüsid ning analoogiliselt Kalfuse ja Hégri~\cite{kalfus2016ultra} Sigfoxi võrgu testimine.
-    Igas näites on põhiline küsimus signaali levimine reaalsetes oludes, mõõtes selleks signaalitugevust (RSSI), signaali ja müra suhet (SNR) ning kaotatud pakettide osakaalu.
-    Ka käesolev töö arvestab neid parameetreid hinnangute tegemisel, kuid asetab vähem rõhku katsete hulgale.
+    Igas näites on põhiline küsimus signaali levimine reaalsetes oludes, mõõtes selleks signaalitugevust (RSSI), signaali ja müra suhet (SNR) ning kaotatud pakettide osakaalu, kusjuures mõõtmissagedus on väga tihe.
+    Ka käesolev töö arvestab neid parameetreid hinnangute tegemisel, kuid teeb seda korraga mitmel tehnoloogial ja suuremal alal, millest tulenevalt on töö mastaabi tõttu mõõtmised harvemad ja hajutatumad.
 
-    Erinevaid tehnoloogiaid korraga on kirjanduses katsetatud mitmel põhjusel.
+    Erinevaid tehnoloogiaid korraga on kirjanduses katsetatud mitmel põhjusel.\todo{siinsed 2 näidet ei ühildu}
     Del Campo jt~\cite{del2019hybrid} monitoorivad LoRaWANi ja Sigfoxi sensoreid paralleelselt ühes targa elektrivõrgu rakenduses, võrreldes peamiselt RSSI ja SNRi muutumist ajas, kusjuures LoRaWANi leviala loodi omal käel ning Sigfoxi puhul katsetati olemasolevat teenusvõrku.
     Palju mitmekülgsema testimise teevad Sikora jt~\cite{sikora2019test}, kelle töö hõlmab nii laboratoorseid kui ka maastikukatsetusi LoRaWANi, Sigfoxi, NB-IoT ja MIOTYga.
-    Kokkuvõtvalt on näidatud iga tehnoloogia paketikadu erinevatelt kaugustelt tugijaamast, kuid katsekeskkond jääb suures osas kirjeldamata.
+    Kokkuvõtvalt on näidatud iga tehnoloogia paketikadu erinevatelt kaugustelt tugijaamast, kuid katsekeskkond jääb neis suures osas kirjeldamata.
 
-    Laiemalt arutleb valitud tehnoloogiate kasutusjuhtude sobivuse ja mittesobivuse üle Sjöström~\cite{sjostrom2017unlicensed} oma magistritöös.
-    Diskussioon kaardistab hästi eeliseid ja puuduseid tehnoloogiate vahel ning toob välja kasutused, kus need nüansid kõige olulisemad on, tehes järeldusi vaid kirjanduse analüüsi põhjal.
-    Käesolev töö on uudne, sest viib kokku kaks olulist poolt tehnoloogiate võrdlusel -- teenuste katsetamise ja tulemuste põhjal kasutustele sobivuse järeldamise, moodustades terviku aitamaks lugejal luua aimdus konkureerivate tehnoloogiate reaalsest potentsiaalist.
+    Laiemalt arutleb Sigfoxi, LoRaWANi ja NB-IoT kasutusjuhtude sobivuse ja mittesobivuse üle Sjöström~\cite{sjostrom2017unlicensed} oma magistritöös.
+    Tema diskussioon kaardistab hästi eeliseid ja puuduseid tehnoloogiate vahel ning toob välja kasutused, kus need nüansid kõige olulisemad on, tehes siiski järeldusi vaid kirjanduse analüüsi põhjal.
+    Erinevalt Sjöströmist toetub käesolev töö kasutusjuhtude analüüsil katsetulemustele, moodustades terviku, aitamaks lugejal luua aimdus konkureerivate tehnoloogiate reaalsest potentsiaalist.
+    Tsavalose ja Hashemi~\cite{tsavalos2018low} magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, kuid katsetustes valitakse neist välja vaid Sigfox.
+    Kuigi autorite võrdlemise idee sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
+
+    Eestis on lähiajal uuritud siinseid teenuseid vaid üksikutel juhtudel.
+    Üheks neist on eestikeelne turuuuringu stiilis diplomitöö, mis hindab levivate teenuste sobilikkust õhukvaliteedi mõõtmiseks siseruumides kümnes Eesti koolis, kahjuks ei kuulu see töö avalikustamisele.
+    Teiseks on käesoleva töö tegemise ajal kirjutatud magistritöö, mis hindab Sigfoxi ning Elisa ja Telia NB-IoT võrke sise- ja välitingimustes, keskendudes väikesele asukohavalimile, kuid suurele ülekannete hulgale igas asukohas.
+    Viimase töö katsed toimuvad pooletunniste vahedega ning näitavad arvestatavat paketikadu kõige raskemates sisetingimustes, mis ei väljenduks üksikute katsetega ning on seetõttu oluline meeles pidada ka käesoleva töö tulemusi tõlgendades.
+
+
 
 %Enamasti on tehtud katseid korraga ühel tehnoloogial, kontrollides selle sobivust mingile kindla kasutusmallile või keskkonnale.
 %Petäjäjärvi jt~\cite{petajajarvi} kaardistavad selleks LoRaWAN signaali kvaliteeti ühe ülikoolilinnaku siseruumides, mängides läbi seadme kasutamist tervisenäitajate saatmiseks.
 %Teisel juhul katsetatakse tehnoloogiat, et leida selle piirjuhud saavutatava levi osas, nagu teevad seda Kalfus ja Hégr~\cite{kalfus2016ultra} Sigfoxi näitel.
 %Kõikidel juhtudel on olulisim küsimus signaali levimine reaalsetes oludes, mõõtes signaalitugevust, signaali . Seda
 
-    Tsavalose ja Hashemi~\cite{tsavalos2018low} magistritöö Lundi Ülikoolis hindamaks LPWAN tehnoloogiate sobivust tööstussektori kasutusaladele algab kõikide samade tehnoloogiate üksikasjaliku kirjeldusega, mida käsitleb ka käesolev töö, kuid katsetustes valitakse neist välja vaid Sigfox.
-    Kuigi autorite võrdlemise idee sarnaneb tugevalt käesoleva töö metoodikaga, jäi LoRaWAN ja NB-IoT nende skoobist välja, sest puudus valmis infrastruktuur ning enda oma loomine osutus liiga keeruliseks.
-%Käesolevas töös vaadeldavaid tehnoloogiaid lahatakse kitsamalt Mroue jt poolt keskendudes meediumipöördusele, Coman jt tehnoloogiate turvalisusele.
+    %Käesolevas töös vaadeldavaid tehnoloogiaid lahatakse kitsamalt Mroue jt poolt keskendudes meediumipöördusele, Coman jt tehnoloogiate turvalisusele.
+
+    \TODO{üleminek järgmisesse ja kokkuvõte eelnevast}
 
     \newpage
 
@@ -496,31 +537,45 @@
     Teisisõnu taandatakse küsimus, "`Milleks tehnoloogia sobib?"', katsetele reaalsete tingimustega asukohtadest ühenduse loomisele.
     Tingimuste planeerimise eelduseks on, et need osutavad väljakutseks mõnele katsetavatest tehnoloogiatest ning pakuks võrdlusmomenti teistega.
 
-    Paratamatult ei ole võimalik luua oma tugijaamu mitmele tehnoloogiale, näiteks Sigfoxi puhul selle suletud ökosüsteeemi tõttu või NB-IoT puhul reguleeritud sagedusala tõttu.
+    Paratamatult ei ole võimalik luua oma tugijaamu mitmele tehnoloogiale, näiteks Sigfoxi puhul selle suletud ökosüsteemi tõttu või NB-IoT puhul reguleeritud sagedusala tõttu.
     Seetõttu kasututatakse teenuseid, mis omavad Tartu piirkonnas infrastruktuuri:
     \begin{itemize}
         \item Sigfoxi ühenduvus tagatud Connected Balticsi poolt,
         \item NB-IoT ühenduvus tagatud Telia poolt,
-        \item LoRaWANi puhul nii Levikomi NORAneti nimeline võrk kui ka ise tehtud tugijaam.
+        \item LoRaWANi puhul nii Levikomi NORAneti nimeline võrk kui ka ise tehtud tugijaam, mis on ühendatud TTN võrku.
     \end{itemize}
+
+    Mõõdetavad parameetrid erinevad tehnoloogiate lõikes.
+    Iga katse puhul on peamine kontrollitavus, kas üleslink ülekanne on võimalik.
+    Side loomise korral ühel kanalil jäädvustatakse sellele tehnoloogiale asjakohased ülekande parameetrid.
+    Pilvepõhiste teenuste puhul (NORAnet, Sigfox ja oma tugijaam) on ülekannete metaandmed varieeruva täielikkusega kättesaadavad teenuste rakendusliideste abil, mis on seadistatud tegema tagasikutseid autori isiku serveri otspunktide vastu, mis võimaldavad andmeid hiljem analüüsida.
+    Nimetatud teenused võimaldavad pärida ülekande kohta järgmiseid metaandmeid:
+    \begin{itemize}
+        \item sõnumit kuulnud tugijaamade identifikaatorid,
+        \item sõnumit teenindava tugijaama RSSI ja SNR indikaatorid (NORAneti puhul ka teiste, sõnumit kuulnud jaamade omad),
+        \item LoRaWANi põhiste teenuste puhul ka kasutatud laotustegur ning sagedus.
+    \end{itemize}
+    Ühegi teenusepakkujaga pole tehtud täiendavaid kokkuleppeid täpsematele parameetritele ligi pääsemiseks ning kõik katsetel mõõdetavad väärtused on kättesaadavad või tuletatavad ainult selle info põhjal, mida peetakse vajalikuks teenuse tarbijale avaldada.
+    Eriti avaldub see NB-IoT puhul, mille andmevahetus marsruuditakse otse IP aadressidele ning madala taseme sidekvaliteedi näitajaid teenusepakkuja ei avalda.
+    Sellest tulenevalt hinnatakse NB-IoT sidekvaliteeti järgnevate parameetrite alusel:
+    \begin{itemize}
+        \item latents, saates rakendusserverile hetke ajatemplit sisaldava paketi, mille kätte saamisel saab leida kulunud aja,
+        \item RSRP (\textit{reference signal received power}), mis sarnaneb RSSIle, kuid on kohandatud LTE signaalitugevuse jaoks ning on kättesaadav modemist,
+        \item ühendatud tugijaama identifikaator, mis on samuti kättesaadav modemist.
+    \end{itemize}
+    NB-IoT latentsi on teiste tehnoloogiate kõrval olulisem jälgida, sest eDRX tõttu see varieerub vastavalt side kvaliteedile.
+    Ülejäänud tehnoloogiate latents on ennustatav ja eraldi mõõtmist ei vaja.
+
     Valmisvõrke ja vaba sagedusala peab sealjuures heaperemehelikult kasutama.
     See tähendab katsete ajalist hajutamist, et mitte hõivata eetrit reaalsete rakenduste eest mõjualas.
     Omakorda kogu protsessi kulukuse tõttu ei saa kokkuvõttes teha niivõrd palju katseid, millega oleks võimalik ammendavalt analüüsida paketikadu või teenuste täpset leviala.
-
-    Mõõdetavad parameetrid erinevad tehnoloogiate lõikes.
-    Iga katse puhul on peamine, kas edukas üleslink ülekanne üldse toimub.
-    Toimumise korral märgitakse üles iga ülekande RSSI ja selle vastu võtnud tugijaam.
-    Sigfoxi ja LoRaWANi teenused võimaldavad veel lisaks saada ülekande SNR suhte, kuid Telia seda ei avalda.
-    Seevastu on NB-IoT ainuke tehnoloogia, mille latentsi mõõtmine on põhjendatud, tulenevalt eDRXst, mis põhjustab varieeruvat latentsi.
-    Ülejäänud tehnoloogiate latents on ennustatav ja mõõtmist ei vaja.
-
     Katsete skoobist jääb välja kõik, mis puudutab tehnoloogiate levivõimekusega mitteseonduvat: unetsüklite planeerimine, sidekanali koormusvõimekuse testimine ja seadme voolutarve.
-    Lisaks ei rõhuda allalink suhtlusele, sest see on kasutatavatel tehnoloogiatel alati võimekam või võrdväärne üleslingile.
+    Lisaks ei rõhuda allalink suhtlusele, sest see on kasutatavatel tehnoloogiatel alati võimekam või võrdväärne üleslingiga.
 
     Edasistes alampeatükkides tutvustatakse kasutatavat riistvara ja katsete läbi viimise keskkondi.
     Esimeses alampeatükis keskendutakse kasutatavale arendusplaadile, mis simuleerib lõppseadet IoT kontekstis.
     Seejärel kirjeldatakse alternatiivset lahendust LPWANi leviala tagamiseks, luues oma LoRaWANi tugijaam.
-    Kolmandas alampeatükis kirjeldatakse katsealuseid tingimusi ja põhjendatakse tähtsamad häirivad tegurid iga keskkonna puhul.
+    Kolmandas alampeatükis kirjeldatakse katsealuseid tingimusi ja tuuakse välja tähtsamad häirivad tegurid iga katsekeskkonna puhul.
 
     \subsection{Arendusplaat FiPy}
 
@@ -530,7 +585,7 @@
 
     Seadme programmeerimiseks, koodi käitamiseks ja toiteks kasutatakse laiendusplaati Expansion Board v3.1, mis võimaldab REPL (\textit{read-eval-print loop}) keskkonna käitamist üle USB.
     Lisaks kuuluvad komplekti veel isotroopiline 868 MHz antenn Sigfoxi ja LoRa jaoks ning mobiilsideantenn NB-IoT jaoks.
-    Testimiseks kasutatav seade on kujutatud joonisel~\ref{fig:fipy}.
+    Testimiseks kasutatav komplekt on kujutatud joonisel~\ref{fig:fipy}.
 
     \begin{figure} [ht] %try to place the figure here (next option top of the page)
         \begin{center}
@@ -549,7 +604,8 @@
         \item antennid on seadmele kalibreeritud.
     \end{itemize}
 % Katsete käigus kasutatakse lõppseadet, et luua side Sigfoxi, NORAneti, Telia NB-IoT ja isikliku LoRaWAN tugijaamaga strateegilistest kohtadest, mis on täpsemini kirjeldatud peatükis 4.3.
-    Kasutatud testskript välja toodud lisades (Lisa 1).
+    Testimiseks valmistati ette skript (Lisa 1), mille käitamine saadab üle iga katsetatava sidekanali mingi sisuga andmepaketi, seejärel vajadusel tugijaamalt vastust ootama jäädes.
+
 
     \subsection{LoRaWANi tugijaam}
 
@@ -582,7 +638,7 @@
     Oluline on märkida, et tugijaam pole riistvarast tingitud piirangute tõttu täielikult LoRaWAN spetsifikatsioonile vastav ning on seetõttu sobiv vaid prototüüpimiseks.
     Erinevus täisväärtusliku tugijaamaga tuleneb transsiivermoodulist, mis on töökindel korraga teenindama vaid ühel kanalil ja laotusteguril.
     Sellise lahenduse mastaapne kasutamine võib liigselt koormata kitsast vahemikku 868 MHz sagedusest ning tekitada ebaproportsionaalselt häireid teiste sama piirkonna LoRa rakenduste töös.
-    Erinevus kajastub ka hinnaklassis — täisvõimekusega LoRa modemi maksumus on 50-300€, käesoleva hind umbes 5€.
+    Erinevus kajastub ka hinnaklassis — täisvõimekusega LoRa modemi maksumus algab 120 eurost~\footnote{\url{https://shop.imst.de/wireless-modules/lora-products/8/ic880a-spi-lorawan-concentrator-868-mhz} (10.04.2020)}, käesoleva hind umbes 5€.
 
     \subsection{Katsete tingimused}
 
@@ -626,7 +682,7 @@
 
     Katsete käigus on oluline meeles pidada erisusi teenuste teeninduspiirkondades.
     Erinevate meetodite abil on võimalik saada ettekujutus tugijaamade tegelikest asukohtadest, mis aitab edasisi mõõtmisi targemini tõlgendada.
-    NB-IoT puhul aitas ühendatud sidemaste lokaliseerida \textit{Cellmapper}\footnote{https://www.cellmapper.net/map (22.03.2020)} keskkond, NORAnet veebiliides avaldab kätte saadud tugijaamade täpsed koordinaadid oma veebiliideses.
+    NB-IoT puhul aitas ühendatud sidemaste lokaliseerida \textit{Cellmapper}\footnote{\url{https://www.cellmapper.net/map} (22.03.2020)} keskkond, NORAnet veebiliides avaldab kätte saadud tugijaamade täpsed koordinaadid oma veebiliideses.
     Sigfoxi jaamade asukohad pole avalikult leitavad, kuid on umbkaudselt tuletatavad veebiliidesest kättesaadava levi kaardi abil.
     Joonisel~\ref{fig:tugijaamad} on kujutatud tugijaamad, millega saavutati ühendus üle kõikide katsete.
 
@@ -734,8 +790,279 @@
     \addcontentsline{toc}{section}{Lisad}
 
 
-    \section*{I. Testskriptid}
-    \addcontentsline{toc}{subsection}{I. Lõppseadme testskriptid}
+    \section*{I. Testskript}
+    \addcontentsline{toc}{subsection}{I. Testskript}
+    \begin{spacing}{0.8}
+        \begin{lstlisting}[language=Python]
+from network import LTE
+from network import Coap
+from network import LoRa
+from network import Sigfox
+import machine
+import time
+import ubinascii
+import struct
+import socket
+
+class NBIoTNode:
+    TELIA_BAND = 20
+    TELIA_APN = "internet.emt.ee"
+    REMOTE_COAP_SERVER = ("88.196.41.189", "monitor", 5683)
+
+    def __init__(self):
+        self.lte = LTE()
+        self.chrono = machine.Timer.Chrono()
+        self.ip_addr = "0.0.0.0"
+
+    def reset(self):
+        print("Resetting LTE modem --- ", end="\t")
+        self.lte.send_at_cmd('AT^RESET')
+        print("OK")
+
+    def attach(self):
+        if not self.lte.isattached():
+            print("Attaching to network --- ", end="\t")
+            self.lte.attach(band=NBIoTNode.TELIA_BAND, apn=NBIoTNode.TELIA_APN)
+            while not self.lte.isattached():
+                time.sleep(0.2)
+            print("OK")
+        else:
+            print("Already attached")
+        if not self.lte.isconnected():
+            self.ip_addr = self.get_ip_addr()
+            print("Attached to tower eNB = `%s` (hex)" % self.get_connected_cell_eNBid(), end=" ")
+            print("with signal strength %s" % self.get_signal_strength())
+
+    def connect(self):
+        try:
+            print("Connecting to network --- ", end="\t")
+            if not self.lte.isconnected():
+                self.lte.connect()
+                while not self.lte.isconnected():
+                    time.sleep(0.2)
+            else:
+                print("Already connected")
+        except Exception as ex:
+            print("Connection failed: %s" % ex.args[0])
+        print("OK")
+
+    def detach(self):
+        print("Detaching network --- ", end="\t")
+        if self.lte.isattached():
+            self.lte.dettach()
+            while self.lte.isattached():
+                time.sleep(0.2)
+        else:
+            print("Already detached")
+        print("OK")
+
+    def disconnect(self):
+        print("Disonnecting network --- ", end="\t")
+        if self.lte.isconnected():
+            self.lte.disconnect()
+            while self.lte.isconnected():
+                time.sleep(0.2)
+            print("OK")
+        else:
+            print("Already disconnected")
+
+    def get_signal_strength(self):
+        modem_response = self.lte.send_at_cmd("AT+CESQ")
+        if "ERROR" not in modem_response:
+            return "-" + str(140 - int(modem_response.split("\r\n")[1].split(",")[-1])) + " dBm"
+        return "Could not execute `AT+CESQ`"
+
+    def get_connected_cell_eNBid(self):
+        modem_response = self.lte.send_at_cmd('AT+CEREG?')
+        if "ERROR" not in modem_response:
+            return modem_response.split("\r\n")[1].replace("\"", "").split(",")[3][:-2]
+        return "Could not execute `AT+CEREG?`"
+
+    def get_ip_addr(self):
+        modem_response = self.lte.send_at_cmd("AT+CGCONTRDP")
+        if "ERROR" not in modem_response:
+            return ".".join(modem_response.split("\r\n")[1].replace("\"", "").split(",")[3].split(".")[:4])
+        return "Could not execute `AT+CGCONTRDP`"
+
+    def nbiot_callback(self, code, id_param, type_param, token, payload):
+        self.chrono.stop()
+        print("Response payload: %s" % payload)
+        print("Round trip latency: %f s" % self.chrono.read_ms() / 1000.0)
+
+    def init_coap(self):
+        try:
+            Coap.init(self.ip_addr, service_discovery=True)
+        except:
+            None
+        Coap.register_response_handler(self.nbiot_callback)
+
+    def nbiot_send(self):
+        payload = (str(time.time()) + str(rtc.now()[6])).encode()
+        self.chrono.reset()
+        self.chrono.start()
+        id = Coap.send_request(
+            NBIoTNode.REMOTE_COAP_SERVER[0],
+            Coap.REQUEST_PUT,
+            uri_port=NBIoTNode.REMOTE_COAP_SERVER[2],
+            uri_path=NBIoTNode.REMOTE_COAP_SERVER[1],
+            payload=payload,
+            include_options=True
+        )
+        print("request sent in %f seconds" % self.chrono.read_ms() / 1000.0)
+        print("Waiting for response...")
+        Coap.read()
+
+class TTNNode:
+    DEV_ADDR = struct.unpack(">l", ubinascii.unhexlify('2601192F'))[0]
+    NWK_KEY = ubinascii.unhexlify('B4A1FC42F651C8675470720A04CB3592')
+    APP_KEY = ubinascii.unhexlify('4F6877967026B49CBAD2C02FA75224CA')
+
+    def __init__(self, freq=868300000, sf=12):
+        self.freq = freq
+        self.sf = sf
+        self.lora = LoRa()
+        self.lora.init(mode=LoRa.LORAWAN, region=LoRa.EU868,
+            power_mode=LoRa.ALWAYS_ON, device_class=LoRa.CLASS_A,
+            tx_power=14, tx_retries=2, adr=False)
+        self.lora.callback(trigger=(LoRa.RX_PACKET_EVENT | LoRa.TX_PACKET_EVENT), handler=self.callback)
+        self.lora.join(activation=LoRa.ABP, auth=(TTNNode.DEV_ADDR, TTNNode.NWK_KEY, TTNNode.APP_KEY), timeout=0, dr=self.data_rate())
+        self.s = socket.socket(socket.AF_LORA, socket.SOCK_RAW)
+        self.s.setsockopt(socket.SOL_LORA, socket.SO_DR, self.data_rate())   # Data Rate
+        self.s.setsockopt(socket.SOL_LORA, socket.SO_CONFIRMED, False)       # ACK
+
+
+    def data_rate(self):
+        return 5 - (self.sf - 7)
+
+    def callback(self):
+        events = self.lora.events()
+        if events & LoRa.RX_PACKET_EVENT:
+            print('TTNNode packet received')
+            print(self.s.recv(64))
+        if events & LoRa.TX_PACKET_EVENT:
+            print('TTNNode packet sent')
+
+    def send(self):
+        self.s.setblocking(True)
+        pkt = str(time.time()).encode()
+        print('Sending to own gateway:', pkt)
+        while True:
+            self.s.send(pkt)
+            if self.lora.stats()[9] == self.freq:
+                print('Got frequency, waiting for downlink...')
+                break
+            else:
+                print(self.lora.stats()[9])
+        self.s.setblocking(False)
+
+class NORAnetNode:
+
+    APP_ID = ubinascii.unhexlify('AC8C5AF81DEA89E5')
+    APP_KEY = ubinascii.unhexlify('E1D3776D1590DA5DE986C4A0F33A63FD')
+
+    def __init__(self, sf=12):
+        self.sf = sf
+        self.lora = LoRa()
+        self.lora.init(mode=LoRa.LORAWAN, region=LoRa.EU868,
+            tx_power=14, tx_retries=1, adr=False,
+            power_mode=LoRa.ALWAYS_ON, device_class=LoRa.CLASS_A)
+        self.lora.callback(trigger=(LoRa.RX_PACKET_EVENT | LoRa.TX_PACKET_EVENT), handler=self.callback)
+        self.join()
+
+    def join(self):
+        chrono = machine.Timer.Chrono()
+        chrono.start()
+        print("waiting for NORAnet to join", end="")
+        self.lora.join(activation=LoRa.OTAA, auth=(NORAnetNode.APP_ID, NORAnetNode.APP_KEY), timeout=0, dr=self.data_rate())
+        timeoutcount = 0
+        while not self.lora.has_joined():
+            timeoutcount += 1
+            if (timeoutcount > 200):
+                print("Failed to handshake with NORAnet")
+                return
+            time.sleep(0.1)
+            print(".", end="")
+        print("\n joined in %f seconds" % chrono.read())
+        self.s = socket.socket(socket.AF_LORA, socket.SOCK_RAW)
+        self.s.setsockopt(socket.SOL_LORA, socket.SO_DR, self.data_rate())   # Data Rate
+        self.s.setsockopt(socket.SOL_LORA, socket.SO_CONFIRMED, False)       # ACK
+
+    def data_rate(self):
+        return 5 - (self.sf - 7)
+
+    def callback(self):
+        events = self.lora.events()
+        if events & LoRa.RX_PACKET_EVENT:
+            print('NORAnet packet received')
+            print(self.s.recv(64))
+        if events & LoRa.TX_PACKET_EVENT:
+            print('NORAnet packet sent')
+
+    def send(self):
+        self.s.send(str(time.time()).encode())
+
+class SigfoxNode:
+    def __init__(self):
+        self.sigfox = Sigfox(mode=Sigfox.SIGFOX, rcz=Sigfox.RCZ1)
+        self.s = socket.socket(socket.AF_SIGFOX, socket.SOCK_RAW)
+        self.s.setblocking(True)
+
+    def send(self, receive=False):
+        self.s.setsockopt(socket.SOL_SIGFOX, socket.SO_RX, receive)
+        self.s.send(str(time.time()).encode())
+        print('Data sent!')
+        if receive:
+            print(self.s.recv(32))
+
+# Sync time
+from network import WLAN
+import machine
+AP_SSID = "5347712null"
+AP_KEY = "talikert"
+rtc = machine.RTC()
+def sync_rtc():
+    wlan = WLAN(mode=WLAN.STA)
+    print("Connecting to WiFi AP")
+    wlan.connect(AP_SSID, auth=(WLAN.WPA2, AP_KEY))
+    while not wlan.isconnected():
+        time.sleep(0.2)
+    print("Syncing device clock", end="")
+    while rtc.now()[0] == 1970:
+        time.sleep(0.5)
+        rtc.ntp_sync("ee.pool.ntp.org")
+    print("Current time is " + str(rtc.now()))
+    wlan.disconnect()
+sync_rtc()
+
+def nb_test():
+    nb = NBIoTNode()
+    nb.disconnect()
+    nb.detach()
+    nb.reset()
+    time = machine.Timer.Chrono()
+    time.start()
+    nb.attach()
+    nb.connect()
+    time.stop()
+    print("attach and connect took %f seconds" % time.read())
+    time.reset()
+    nb.init_coap()
+    nb.nbiot_send()
+
+def ttn_test(spfac=12):
+    ttn = TTNNode(sf=spfac)
+    ttn.send()
+
+def sigfox_test(recv=False):
+    sigfox = SigfoxNode()
+    sigfox.send(recv)
+
+def noranet_test(spf=12):
+    noranet = NORAnetNode(sf=spf)
+    if (noranet.lora.has_joined() == True):
+        noranet.send()
+    \end{lstlisting}
+\end{spacing}
 
     \newpage
 
