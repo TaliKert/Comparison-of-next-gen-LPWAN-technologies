@@ -102,6 +102,10 @@
 \usepackage{array}
 \usepackage{tabu}   % Wide lines in tables
 \usepackage{xspace} % Non-eatable spaces in macros
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{pict2e}
+\usepackage{diagbox}
 
 % Including graphical images and setting the figure directory
 \usepackage{graphicx}
@@ -681,7 +685,7 @@
 
     \begin{figure} [ht]
         \begin{center}
-            \includegraphics[width=0.95\textwidth]{figures/tugijaamad.png}
+            \includegraphics[width=0.95\textwidth]{figures/tugijamadzoom.png}
             \caption{Leitud tugijaamad.}
             \label{fig:tugijaamad}
         \end{center}
@@ -693,8 +697,57 @@
     Järgnevatel joonistel on side kvaliteeti tähistatud viie palli skaalal, mis on välja kujundatud vastavalt ülekande kohta üles märgitud näitajate alusel.
     Skaala määramisel on juhindutud võimalusel varasematest töödest ja ametlikest allikatest.
     Sigfoxi puhul on täpne juhis välja toodud dokumentatsioonis\footnote{\url{https://support.sigfox.com/docs/link-quality:-general-knowledge}}, NB-IoT signaali tugevust hindamaks on sobiv skaala välja toodud Poddari poolt~\cite{poddar2020}.
-    LoRa signaali hindamisel puudub kokkuleppeline skaala, kuid määratakse testide käigus kujunenud mustrite põhjal, arvestades eelkõige, et minimaalne edukalt demoduleeritud sõnum oli tugevusega -122 dBm.
-    Skaala on üksikasjalikult välja toodud tabelis ?\todo{teha tabelike}.
+    LoRa signaali hindamisel puudub kokkuleppeline skaala, kuid määratakse testide käigus kujunenud mustrite põhjal, arvestades eelkõige, et minimaalne edukalt demoduleeritud sõnum oli tugevusega \SI{-122}{\deci\belm}.
+    Skaala on üksikasjalikult välja toodud tabelis~\ref{tab:levid}.
+
+    \def\tabularxcolumn#1{m{#1}}
+    \begin{table}[h]
+    \caption{Hinnangulise side kvaliteedi tingmärgid võrkude lõikes.}
+    {\newcolumntype{Y}{>{\centering\arraybackslash}X}
+        \begin{tabularx}{\textwidth}{ c | Y  Y  Y }
+            \scriptsize{\diagbox{side\\kvaliteet}{võrk}} & \raisebox{-0\totalheight}{\includegraphics[scale=1.25]{figures/sigfox-full.pdf}} & \raisebox{-0\totalheight}{\includegraphics[scale=2]{figures/lorawan-full.pdf}} & \raisebox{-0\totalheight}{\includegraphics[scale=1.25]{figures/nbiot-full.pdf}} \\
+            \hline
+                \makecell{
+                    \raisebox{-\totalheight}
+                {\includegraphics[scale=2.2]{figures/levi1.pdf}} \\ (väga hea)} &
+                \makecell{\scriptsize{$RSSI>\SI{-115}{\deci\belm}$}}  &
+                \makecell{\scriptsize{$RSSI>\SI{-98}{\deci\belm}$}} &
+                \makecell{\scriptsize{$RSRQ>\SI{-84}{\deci\belm}$}} \\
+%            \hline
+                \makecell{
+                    \raisebox{-\totalheight}
+                {\includegraphics[scale=2.2]{figures/levi2.pdf}} \\ (hea)} &
+                \scriptsize{$\SI{-115}{\deci\belm} \geq RSSI > \SI{-129}{\deci\belm}$} &
+                \scriptsize{$\SI{-98}{\deci\belm} \geq RSSI > \SI{-110}{\deci\belm}$} &
+                \scriptsize{$\SI{-84}{\deci\belm} \geq RSRQ > \SI{-97}{\deci\belm}$} \\
+%            \hline
+                \makecell{
+                    \raisebox{-\totalheight}
+                {\includegraphics[scale=2.2]{figures/levi3.pdf}} \\ (rahuldav)} &
+                \scriptsize{$\SI{-129}{\deci\belm} \geq RSSI > \SI{-135}{\deci\belm}$} \footnotesize{või madalam, kuid kuuldud vähemalt kolme tugijaama poolt} &
+                \scriptsize{$\SI{-110}{\deci\belm} \geq RSSI > \SI{-116}{\deci\belm}$} \footnotesize{või madalam, kuid kuuldud vähemalt kolme tugijaama poolt} &
+                \scriptsize{$\SI{-97}{\deci\belm} \geq RSRQ > \SI{-107}{\deci\belm}$} \\
+%            \hline
+                \makecell{
+                    \raisebox{-\totalheight}
+                {\includegraphics[scale=2.2]{figures/levi4.pdf}} \\ (nõrk)} &
+                \scriptsize{$\SI{-135}{\deci\belm} \geq RSSI > \SI{-140}{\deci\belm}$} &
+                \scriptsize{$\SI{-116}{\deci\belm} \geq RSSI > \SI{-120}{\deci\belm}$} &
+                \scriptsize{$\SI{-107}{\deci\belm} \geq RSRQ > \SI{-114}{\deci\belm}$} \\
+%            \hline
+                \makecell{
+                    \raisebox{-\totalheight}
+                {\includegraphics[scale=2.2]{figures/levi5.pdf}} \\ (limiit)} &
+                \scriptsize{$\SI{-140}{\deci\belm} \geq RSSI$} \newline \footnotesize{või paketikadu} &
+                \scriptsize{$\SI{-120}{\deci\belm} \geq RSSI$} \newline \footnotesize{või paketikadu} &
+                \scriptsize{$\SI{-114}{\deci\belm} \geq RSRQ$} \newline \footnotesize{või paketikadu} \\
+%            \hline
+                \makecell{\raisebox{-0\totalheight}{\includegraphics[scale=2.2]{figures/iks.pdf}}} &
+                \multicolumn{3}{c}{ülekande nurjumine peale kolme katset}
+        \end{tabularx}
+    }
+    \label{tab:levid}
+    \end{table}
 
     Maapiirkonnas tehti katseid 14 erinevast asukohast (joonis~\ref{fig:maapiirkonnakatsed}). Pelgalt ühenduse loomisega viieteistkümne kilomeetri raadiuses Tartu kesklinnast lõuna poole saavad eranditult hakkama NB-IoT ja Sigfox.
     Võttes arvesse NB-IoT jaamade hulka, on tagantjärele selge, et levialast välja sattumine on tugijaamade liiasuse ja teeninduspiirkondade kattuvuse tõttu väga keeruline.
