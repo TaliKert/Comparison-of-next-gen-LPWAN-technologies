@@ -685,7 +685,7 @@
 
     \begin{figure} [ht]
         \begin{center}
-            \includegraphics[width=0.95\textwidth]{figures/tugijamadzoom.png}
+            \includegraphics[width=\textwidth]{figures/tugijamadzoom.png}
             \caption{Leitud tugijaamad.}
             \label{fig:tugijaamad}
         \end{center}
@@ -766,7 +766,7 @@
     Linnatänavatel oli paiku kokku seitse (joonis~\ref{fig:annelinn}).
     LoRa puhul võis ka Annelinna majade vahel leida leviauke nii NORAneti kui oma tugijaamaga, kusjuures oma tugijaam kaotas side juba vähimagi hoonestuse varjega pooleteise kilomeetriselt distantsilt.
     Sigfoxi jaoks oli Annelinn tugijaamadega varustatavust arvestades keerulistes tingimustes, kuid sellegipoolest ei tuvastatud välitingimustes paketikadu isegi kui ühes asukohas küündis vastuvõetud signaalitugevus -141 dBm-ni.
-    NB-IoT välitingimustel probleeme ei tekitanud ning üleslink latents püsis pidevalt 0,3--0,5 sekundi vahemikus.\todo{updateda viimaste testidega, sai suurema latentsi ka kätte}
+    NB-IoT välitingimustel probleeme ei tekitanud ning üleslink latents püsis kindlalt 0,3--0,5 sekundi vahemikus, tõustes vaid korra 1,3 sekundini.
 
     \begin{figure} [p]
         \begin{center}
@@ -832,9 +832,9 @@
     Tänavapildis võib probleemideta neid teenuseid intgreerida liiklusloendurite, mürasensorite, jäätmekonteinerite ja muude vabas õhus IoT rakenduste info vahenduseks.
     Potentsiaali põllumajandus- ja looduskeskkonnast andmete kogumiseks tõestab samuti hea teenuse kvaliteet linnapiirist väljaspool.
 
-    Samadele kasutusjuhtudele rakendust üles ehitades NORAneti võrgus võib tekitada probleeme.
+    Samadele kasutusjuhtudele rakendust üles ehitades NORAneti võrgus võib tekkida probleeme.
     LoRa vastuvõtjate võrdlemisi kõrge signaalitugevuse vajadus näitab, et juba ühe kilomeetri kauguselt võib hea asetusega tugijaamaga ühendus nurjuda, kui side trajektoorile jäävad kõrgemad hooned või maastik.
-    Kõrgemal maastikul või linnatänavatel maapinnast kõrgemal, näiteks tänavavalgustitel, tõenäoliselt probleeme ei teki, kuid madalikele, veekogudesse, metsadesse või kõrghoonestuse keskele sensoreid paigaldades tuleks seadmete plaanitavates asukohtades levi olemasolu eelnevalt kontrollida.
+    Nõlvadel või linnatänavatel maapinnast kõrgemal, näiteks tänavavalgustitel, tõenäoliselt probleeme ei teki, kuid madalikele, veekogudesse, metsadesse või kõrghoonestuse keskele sensoreid paigaldades tuleks seadmete plaanitavates asukohtades levi olemasolu eelnevalt kontrollida.
 
     LoRaWANi protokoll paistab silma enim paindlikkuse ja kättesaadavuse poolest.
     Avatud spetsifikatsioon, aktiivne arenduskogukond ja võimalus hallata ise tugijaamu võimaldab luua erinevaid \textit{ad hoc} lahendusi.
@@ -845,7 +845,28 @@
     Rakendused, mis kasutaks allalink suhtlust oleks näiteks tänavavalgustuse reguleerimine, põllumajanduses kasvuhoonete kastmis- ja tuulutussüsteemid, aga ka igasugune sensorite kaughaldus.
     Sigfoxi puhul on üleslink sõnumite arv piiratud neljale ülekandele päevas ning selle puhul pole võimalik seadistada vastuvõtuaknaid, mistõttu pole see selliseks otstarbeks ideaalne.
 
-    Latents
+    Latentsi osas ei esinenud katsetamisel suuri üllatusi.
+    Sigfoxi puhul oli see pidevalt 2,08 s, LoRa puhul laotustegurist sõltuvalt 0,06--1,5 s ning NB-IoT puhul paketi suurusest ja signaali tugevusest sõltuvalt 0,25--1,5 s.
+    Viimased kaks sobivad paremini latentsitundlikesse rakendustesse, milleks võivad olla erinevad häiresüsteemid nii turvasüsteemi kui õnnetusjuhtumite kontekstis või looduskatastroofe ennustavad sensorid.
+
+    Juhul, kui lõppseade on mobiilne, peab kasutatav teenus võimaldama tugijaamade vahel liikumist ja vajadustele vastavat leviala.
+    LoRaWANil ja Sigfoxil pole probleeme ühe tugijaama mõjupiirkonnast teise minekuga, sest lõppseade ja tugijaam ei lepi kokku eksklusiivset sidekanalit, nagu teevad mobiilsidetehnoloogiad.
+    Seetõttu, kui kasutusjuhu eeldatav piirkond jääb reklaamitava leviala sisse, siis on need tehnoloogiad ideaalsed asukoha või tervisenäitajate monitoorimiseks.
+    GPS mooduliga lõppseadme võib kinnitada masinapargi masinatele, tähtsatele tarnitavale kaupadele, dementsuspõdejale või koduloomale, et jälgida nende asukohta.
+    Sealjuures on NORAnet tõenäoliselt parem jälgima Eesti-siseseid liikumisi ja Sigfox Euroopa-siseseid vedusid, sest kumbki ei oma nendes piirkondades rändlusprobleeme, kuigi arvestada tuleb hõreda infrastruktuuriga ja leviaukudega mõlemal juhul.
+    Tarku tervisesensoreid saab rakendada nii inimestel kui kariloomadel, juhul kui on veendutud teenuse levialas inimese koduruumides või loomadel kogu nende karjamaa ulatuses, kusjuures ühe karjamaa piires kõlbaks kasutuseks ka ise tehtud LoRaWAN lahendus.
+
+    Väga kriitiliste tervisehäirete jaoks ei ole soovitatav kasutada kumbagi vaba sagedusala põhist LPWANi, sest hetkeseisuga pole nende infrastruktuuri küpsus ja teenuse kvaliteet nii usaldusväärne, kui mobiilsideteenustel.
+    Katsetamisel liikumiselt tuli aga ilmsiks, et NB-IoT ei suuda peale esmast ühendamist sidemastiga end ümber ühendada juhul kui nimetatud masti levialast väljutakse, vaid vajab manuaalset taasühendumist võrku.
+    Võrku ühendumine võttis katsetel aega suurusjärgus 20 sekundit, mille jooksul ei saa seade olulisi sõnumeid üle kanda.
+    Potentsiaalset lahendust sellele probleemile pakub LTE-M tehnoloogia, mis võimaldab traditsioonilise mobiilside kombel mastide üle andmist, kuid selle leviala Eestis veel puudub.
+    Eelmises lõigus kirjeldatud vähemkriitilistele rakendustele sobib ka NB-IoT, mis pakub tulemuste põhjal ka paremat katvust, kuid arvestada tuleb suure latentsilisaga.
+
+    Nagu eelnevalt mainitud, sobivad etteplaneeritud allalink side jaoks LoRaWAN ja NB-IoT ning nagu just kinnitatud, saab NB-IoT korraga ühendatud olla vaid ühe tugijaamaga.
+    Kummagis protokollis võib problemaatiliseks osutada planeeritud allalink sõnumeerimine liikuvale lõppseadmele, sest ajavahemikus, mil seade jõuab viimase tugijaama levialast välja, pole sellele võimalik enam saata.
+    Täpsemalt tähendab see seda, et seade, mis ühtlasi liigub ja kuulab perioodiliselt instruktsioone oma sidekanalil, peab sellise süsteemi toimimiseks tegema regulaarselt üleslink ülekandeid, et võrk oleks teadlik selle asukohast.
+    Kokkuvõttes pole soovitatav kasutada kõnealuseid LPWANi tehnoloogiaid näiteks autonoomsete liikurite kaugjuhtimiseks või muude liikuvate lõppseadmete madalalatentsiliseks haldamiseks.
+    Soovituslik on sellises olukorras kasutada vaid perioodilist küsimus-vastus suhtlust lõppseadme poolt.
 
     \newpage
 
