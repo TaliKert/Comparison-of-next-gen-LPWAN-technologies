@@ -235,7 +235,7 @@
     Sigfox, LoRaWAN and NB\=/IoT are the best known LPWAN (Low Power Wide Area Network) technologies, which allow for large scale deployments of IoT applications.
     This survey assesses the suitability of those technologies to known IoT use cases by testing the available services in challenging environments near and within Tartu, Estonia.
     The resulting analysis gives insight about the best services to use for static sensor, mobile tracking or remotely operated device based applications.
-    Testing will be conducted on the FiPy development board by Pycom.
+    Testing is conducted on the FiPy development board by Pycom.
     In addition to the services, a self\=/made LoRaWAN gateway is also built and tested in parallel.
 
 %        \vspace*{0.5ex}
@@ -327,30 +327,30 @@
 
     Kuigi tehnoloogiad täidavad ühist nišši pakkuda laiahaardelist ja usaldusväärset ühenduvust ressursidest piiratud seadmetele, erinevad need oma võimekuse poolest märkimisväärselt.
     Uurimistöö eesmärk on hinnata Tartus kättesaadavate teenuste sobivust erinevatele asjade interneti kasutusjuhtudele, milleks võib olla näiteks tark arvesti kortermaja keldris või turvasüsteem maakodule.
-    Käesolev ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid soovivad tugineda kasutatava võrgu valiku tegemisel teiste kogemustele ja testidele.
+    Ülevaade on väärtuslik lähtekoht väiksematele teenusepakkujatele, kes kaaluvad kaugloetavate seadmete kasutuselevõttu, kuid soovivad tugineda kasutatava võrgu valiku tegemisel teiste kogemustele ja testidele.
 
     Uurimuse meetod on riistvara katsetamine, mille käigus mängitakse läbi LPWANi lõppseadme käitumine erinevates raskendatud leviga paikades.
     Katseid viiakse läbi kolme Tartus kättesaadava LPWAN tehnoloogial põhineva teenuse peal: Levikomi NORAnet, Connected Balticsi Sigfox ja Telia NB\=/IoT.
     Nendele lisaks demonstreeritakse ka oma LoRaWANi võrgu loomist ning seda katsetatakse paralleelselt valmisvõrkudega.
 %Seetõttu on uurimus väärtuslik ülevaade konkureeruvate tehnoloogiate reklaamitava jõudluse kõrvutamisest tegelikuga.
-    Eelkõige jälgitakse lõppseadme võimekust saata sõnumeid halvemates oludes, võttes arvesse ka selleks kuluvat latentsi.
+    Eelkõige jälgitakse lõppseadme võimekust saata sõnumeid erinevates oludes, võttes arvesse ka selleks kuluvat latentsi.
     Kasutusjuhtude võimalikkuse hindamisel võetakse arvesse katseid maa- ja linnakeskkonnas, kus valitud olustikud kirjeldavad reaalseid töötingimusi lõppseadmetele.
     Katsed ei puuduta võrkude koormustaluvuse ega tehnoloogiate voolutarbe võrdlemist.
     Samuti ei kaardistata täpset teenuste leviala, vaid piirdutakse sellise valimiga asukohtadest, mis annaks ettekujutuse kõige keerulistemast töötingimustest seadmetele.
 % Katsed toimuvad reaalsete teenusvõrkude peal, mistõttu pole kohane neid liigselt koormata.
 %, olemasoleva infrastruktuuri sobivust ning muid olulisi piiranguid tehnoloogiatel.
 
-    Esimeses peatükis antakse ülevaade teoreetilistest taustateadmistest, mis puudutavad asjade internetti, LPWANi tehnoloogiaid ja näiteid nende potentsiaalsetest kasutusaladest, mida teadusartiklites on seni kajastatud.
+    Esimeses peatükis antakse ülevaade teoreetilistest taustateadmistest, mis puudutavad asjade internetti, LPWANi tehnoloogiaid ja näiteid potentsiaalsetest kasutusaladest, mida teadusartiklites on seni kajastatud.
     Teine peatükk hõlmab töö lahenduskäiku, alates kasutatava riistvara kirjeldusega ning lõpetades metoodika ja testimiste asukohavalikute põhjendustega.
     Kolmandas peatükis koondatakse kokku ja visualiseeritakse olulisemaid katsetulemusi.
-    Neljandas peatükis arutletakse teenuste sobilikkuse ja mittesobilikkuse üle erinevatele kasutusjuhtudele, tuginedes eelkõige katsetulemustele, kuid arvestades ka teises peatükis välja toodud omadusi, mis katsetamisele ei kuulunud.
+    Neljandas peatükis arutletakse teenuste sobilikkuse ja mittesobilikkuse üle erinevatele kasutusjuhtudele, tuginedes eelkõige katsetulemustele, kuid arvestades ka esimeses peatükis välja toodud omadusi, mis katsetamisele ei kuulunud.
 
     \newpage
 
     \section{Madala voolutarbe ja laia ulatusega võrgud}
 
-    Gaddami ja Rai~\cite{gaddam2018comparative} väitel on LPWANi võrgud loodud pidades silmas neid võrku ühendatavaid seadmeid ja nende kasutusjuhte, millele ei sobi traditsioonilised traadita andmeside tehnoloogiad nagu 802.11 (WiFi) perekond, Bluetooth või senised 3GPP mobiilside standardid.
-    Tuuakse välja, et uute sidelahenduste välja töötamine on tingitud eelkäijate võtmeomadustest, keskendudes eelkõige suuremale andmeedastuskiirusele ja minimaalsele latentsile.
+    Gaddami ja Rai~\cite{gaddam2018comparative} väitel on LPWANid loodud pidades silmas neid võrku ühendatavaid seadmeid ja nende kasutusjuhte, millele ei sobi traditsioonilised traadita andmeside tehnoloogiad nagu 802.11 (WiFi) perekond, Bluetooth või senised mobiilside standardid.
+    Tuuakse välja, et uute sidelahenduste välja töötamine on tingitud eelkäijate võtmeomadustest, mis keskenduvad eelkõige suuremale andmeedastuskiirusele ja minimaalsele latentsile.
 
     Gubbi jt~\cite{gubbi2013internet} visioonis asjade interneti tuleviku kohta defineeritakse asjade internetti kui võrgustikku omavahel ühenduses olevaid seadmeid — sensorid, mis koguvad oma keskkonna kohta infot ning aktuaatorid interaktsiooniks teise seadmega, kusjuures suhtlus toimub üle olemasolevate Interneti standardite.
     Augustin jt~\cite{augustin2016study} eristavad Internetti ja asjade internetti arutledes, et IoT seadmetel on palju vähem ressursse, kui Interneti seadmetel.
@@ -417,11 +417,11 @@
     Levinud voolusäästmise meetod on ALOHA meediumipöördus, mille puhul ei kasutata meetmeid, et vältida naaberseadmega konfliktimist, vaid minnakse eetrisse esimesel ettejuhtuval ajal~\cite{raza}.
     Ühelt poolt on see käitumine odav, kuid suurendab pakettide põrkumise tõenäosust ja seetõttu on tarvis lisameetmeid side usaldusväärsuse tagamiseks, nagu pakettide kordamine suvalistel kanaliltel Sigfoxi näitel~\cite{raza}.
 
-    Detsimeeterlainealas (UHF) sobilikud litsentseerimata sagedusvahemikud on enamasti ISM (\textit{Industrial-Scientific-Medical}) ribad, mis on reguleeritud seadmete eetrihõive ja kiirgusvõimsuse osas — Euroopas kehtib näiteks Sigfoxi ja LoRa poolt kasutatavale \SI{868}{\mega\hertz} sagedusele seadusega sätestatult 1\% maksimaalne päevane täitetegur ja \SI{25}{\milli\watt} kiirgusvõimet seadme kohta~\cite{etsi}.
+    Detsimeeterlainealas (UHF) sobilikud litsentseerimata sagedusvahemikud on enamasti ISM (\textit{Industrial-Scientific-Medical}) ribad, mis on reguleeritud seadmete eetrihõive ja kiirgusvõimsuse osas; Euroopas kehtib näiteks Sigfoxi ja LoRa kasutatavale \SI{868}{\mega\hertz} sagedusele seadusega sätestatult 1\% maksimaalne päevane täitetegur ja \SI{25}{\milli\watt} kiirgusvõimet seadme kohta~\cite{etsi}.
     See tähendab, et transsiiver võib olla eetris kokku kuni ühe sajandiku ööpäevast, sealhulgas mitte ületada sätestatud võimsust.
     LPWANi kasutusalad on orienteeritud väiksemale eetrihõivele ning voolusäästlikkusele, mistõttu on ISM ribad neis kasutuseks sobilikud.
 
-    Mainitud meetodid on vaid üldised orientiirid, mis seniste tehnoloogiate seas on korduvalt kasutusele võetud.
+    Mainitud meetodid on vaid üldised orientiirid, mis senistes tehnoloogiates korduvalt esinevad.
     Tehnoloogia disainivalikud nendes küsimustes defineerivad selle eelised ja puudused levi ja voolusäästlikkuse osas ning sageli hoitakse neid teadmisi ka saladuses.
 
     \subsection{Tehnoloogiate ülevaade}
@@ -431,7 +431,7 @@
 
     \subsubsection{Sigfox}
 
-    Sigfox on 2010. aastal Prantsusmaa iduettevõtte poolt loodud tehnoloogia, mis loojate visiooni kohaselt tagab ühenduse miljarditele IoT seadmetele, luues minimaalse telekommunikatsioonistandardi pisikeste sõnumite edastamiseks~\cite{sigfox}.
+    Sigfox on 2010. aastal Prantsusmaa iduettevõtte loodud tehnoloogia, mis loojate visiooni kohaselt tagab ühenduse miljarditele IoT seadmetele, luues minimaalse telekommunikatsioonistandardi pisikeste sõnumite edastamiseks~\cite{sigfox}.
     Ettevõte pakub tehnoloogiat ja pilvekeskkonda komplektse teenusena.
 
     Sigfox töötab Euroopas \SIrange{868.0}{868.2}{\mega\hertz} mittelitsentseeritud sagedusalas ning kasutab ülikitsaribalist (\textit{Ultra-Narrow Band} ehk UNB) side, milles iga üleslink ülekanne kasutab vaid 100-hertsi laiust riba~\cite{sigfoxtech}.
@@ -451,7 +451,7 @@
     \subsubsection{LoRaWAN}
 
     LoRa (tuletatud \textit{Long Range}) on nimetus füüsilisele kihile, mille on välja arendanud USA ettevõte Semtech~\cite{loraIntro}.
-    LoRaWAN (Wide Area Network) on sellele loodud protokoll, mis defineerib võrgu arhitektuuri ning võrgu- ja transpordikihi~\cite{lorawanIntro}.
+    LoRaWAN (\textit{Wide Area Network}) on sellele loodud protokoll, mis defineerib võrgu arhitektuuri ning võrgu- ja transpordikihi~\cite{lorawanIntro}.
     Protokolli edendaja on ülemaailmne mittetulundusühendus LoRa Alliance -- grupp ettevõtteid, kelle ühine eesmärk on luua üldine LPWAN digitaalne ökosüsteem, mis toetaks mastaapsete IoT lahenduste juurutamist litsenseerimata raadiosagedusvahemikes~\cite{loraalliance}.
 
     LoRa modulatsioon on firmaomane ning kuigi selle spetsifikatsiooni pole ametlikult avaldatud, on signaali analüüsitud mitmetes teadustöödes, sh Vangelista~\cite{vangelista} poolt.
@@ -473,28 +473,28 @@
 
     Avatud protokolli tõttu loob LoRaWAN unikaalse maastiku LPWAN teenustele.
     Eesti esimene ja suurim LoRaWAN teenusvõrk on Levikomi NORAnet, mille tugijaamad asuvad kõigis maakonnakeskustes~\cite{noranetuudis}.
-    Alternatiivselt võib kasutada kogukonnale tuginevat \textit{The Things Network} (TTN) võrku, või hostida avaliku lähtekoodiga rakendusserverit nagu ChirpStack koos isiklike tugijaamadega.
+    Alternatiivselt võib kasutada kogukonnale tuginevat \textit{The Things Network}\footnote{\url{https://www.thethingsnetwork.org/} (07.05.2020)} (TTN) võrku, või hostida avaliku lähtekoodiga rakendusserverit nagu ChirpStack\footnote{\url{https://www.chirpstack.io/} (07.05.2020)} koos isiklike tugijaamadega.
     TTN on tasuta LoRaWANi teenus mille leviala pakkujateks on vabatahtlikud üle maailma.
 
     \subsubsection{NB\=/IoT}
 
     Mobiilsidestandardite looja 3GPP avaldas 13. väljaandes spetsifikatsiooni mitmele IoT rakendustele suunatud tehnoloogiatele: LTE\=/M, NB\=/IoT ja EC-GSM-IoT~\cite{3gppiot}.
     Xu jt~\cite{xuyao} hinnangul on tegemist mobiilside ettevõtete vastusega vaba sagedusala põhistele LPWAN tehnoloogiatele, pakkudes sobilikku lahendust ka mobiilsidespektrisse.
-    Nimetatud tehnoloogiatest on antud töö kontekstis märkimisväärseim NB\=/IoT (\textit{Narrow-Band IoT}), mis on disainitud töötama sügaval sisetingimustes ja maapiirkonna nurgatagustes~\cite{martinez}.
+    Nimetatud tehnoloogiatest on selle töö kontekstis märkimisväärseim NB\=/IoT (\textit{Narrow-Band IoT}), mis on disainitud töötama sügaval sisetingimustes ja maapiirkonna nurgatagustes~\cite{martinez}.
 
-    NB\=/IoT võtab disainilt eeskuju LTEst, kuid sellegipoolest pole tegemist omavahel ühilduvate standarditega~\cite{wanglin}.
+    NB\=/IoT võtab disainilt eeskuju ning on sisuliselt vähendatud kuju LTEst, kuid sellegipoolest pole tegemist omavahel ühilduvate standarditega~\cite{wanglin}.
     Tehnoloogia eristub oma eelkäijatest voolutarbe ja levi optimeerimiseks tehtud muudatuste poolest, mille hulka kuuluvad uus energiat säästev olek (PSM) ja seadme allalink kättesaadavuse planeerimine (eDRX), lisaks ribalaiuse kitsendamine ja tsükkelkoodikontrolli suurendamine, millega saavutatakse \SI{20}{\deci\bel} efektiivne signaalivõimendus üle LTE~\cite{xuyao}.
     Nagu LTE, tugineb suhtlus internetiprotokollile (IP), mis tähendab seadme eksplitsiitset võrguga liitumist ja otse rakendusserveriga suhtlemist, suurendades üldkulu, kuid samas päritakse ennast tõestanud LTE turvamehhanismid~\cite{basu}.
     Mitu uurimust~\cite{wirges, larmo} soovitab siiski NB\=/IoT puhul kasutada UDP-põhiseid sideprotokolle nagu CoAP (\textit{Constrained Application Protocol}), mis sobivad paremini piiratud ressurssidega seadmetele ja kannatavad väiksema paketikao all.
 
     Tehnoloogia pakub konkurentsi ka Sigfoxi ja LoRa robustsetele protokollidele.
-    Analoogiliselt LoRaWANi "`B"'-klassile saab eDRX abil allalink valmidust ka ette planeerida, hoides muul ajal PSM režiimiga kordades kokku transsiiveri tööaega ja saavutada 10-aastast aku eluiga, kui saata päevas keskmiselt 200 baiti~\cite{wanglin}.
     Modem otsustab side kvaliteedile vastavalt ise, kui suure energia ja koodikontrolliga eetrisse minna, parandades signaali levi raskestipääsetavates kohtades, kusjuures koodikontroll sarnaneb funktsionaalsuselt LoRa laotusteguriga, pikendades latentsi robustsema side arvelt~\cite{martinez}.
     Mozny jt~\cite{mozny} katsetustest tuleb välja, et tavapärastes oludes võib 500-baidise sõnumi latents küündida kuni seitsme sekundini, samas näitavad Martinez jt~\cite{martinez}, et kõige halvema levi korral pole välistatud kuni 270 sekundiline viivitus, mis võib osutuda probleemiks latentsitundlikele rakendustele.
     NB\=/IoT üleslink andmekiirus on keskmiselt 20 kbps mis on LPWAN rakendusteks piisav, samas on allalink andmevahetus ebasümmeetrilise side tõttu igast küljest parem ja litsenseeritud mobiilside spektri tõttu ei toimu sidekanalil üldjuhul suuremaid raadiohäireid ega põrkumisi~\cite{wanglin}.
+    Analoogiliselt LoRaWANi "`B"'-klassile saab eDRX abil allalink valmidust ka ette planeerida, hoides muul ajal PSM režiimiga kordades kokku transsiiveri tööaega ja saavutada 10-aastast aku eluiga, kui saata päevas keskmiselt 200 baiti~\cite{wanglin}.
 
     Wang jt~\cite{wanglin} toovad välja, et sarnasused kahe standardi vahel on sihilikud kiirendamaks tehnoloogia kasutuselevõttu telekomiettevõtete ja kiibistike tootjate poolt.
-    Esiteks on leviala juurutamine võimalik omistades ühe standardse \SI{200}{\kilo\hertz} laiuse vahemiku olemasolevas LTE rakus teenindama NB\=/IoTd, mis tähendab, et tehnoloogia on lihtsasti integreeritav olemasolevatesse tugijaamadesse ja töötab paralleelselt LTEga.
+    Esiteks on leviala juurutamine võimalik rakendades ühe standardse \SI{200}{\kilo\hertz} laiuse vahemiku olemasolevas LTE rakus teenindama NB\=/IoTd, mis tähendab, et tehnoloogia on lihtsasti integreeritav olemasolevatesse tugijaamadesse ja töötab paralleelselt LTEga.
     Teiseks ennustatakse, et riistvara ja tarkvara tarnimine on olemasolevatele LTE moodulite tootjatele lihtsam.
     Üleüldiselt on protokolli lihtsustatud, et alandada kiibistike keerukust ja omakorda riistvara maksumust~\cite{xuyao}.
     Eestis pakub NB\=/IoT teenust Elisa ja Telia, lubades katta kogu Eesti~\cite{nbtelia}.
@@ -502,14 +502,14 @@
     \subsubsection{Alternatiivsed tehnoloogiad}
 
     Kirjeldatud tehnoloogiad on töö kirjutamise hetkel kõige suurema mõju ja kajastusega LPWANid.
-    Küll aga leidub sellesse võrguklassi pretendeerivaid tehnoloogiaid rohkem, osa neist mitte nii õnnestunuid ning osa alles populaarsust kogumas.
+    Küll aga leidub sellesse võrguklassi pretendeerivaid tehnoloogiaid rohkem, osa neist mitte nii õnnestunud ning teised alles populaarsust kogumas.
 
     Litsentseeritud sagedusalas leidub NB\=/IoTga samaaegselt loodud LTE\=/M, mille puhul on sarnaselt tegemist LTE vähendatud kujuga.
     Voolu säästmiseks kasutab tehnoloogia samu meetodeid, mis NB\=/IoT, kuid levivõimekus jääb tavalise LTE ja NB\=/IoT vahele~\cite{benhiba2018comparative}.
     Lauridseni jt~\cite{lauridsen2016coverage} võrdlusest avaldub, et efektiivne signaalitugevus on \SI{8}{\deci\bel} nõrgem, kuid seevastu saavutatakse kuni 1~Mbps andmeedastuskiirus, utiliseerides tervelt \SI{1,4}{\mega\hertz} laiust riba.
     LTE\=/M on seetõttu vähem optimeeritum sügavates siseruumides töötamisele kui NB\=/IoT, aga on sobilik harvade, kuid suuremate andmete ülekandeks, kui leviala seadmeni ulatub.
     Erinevus kahe tehnoloogia vahel avaldub ka seadmete mobiilsuses.
-    Täpsemini on NB\=/IoT optimeerimiste seas välja jäetud seadme üleandmine tugijaamade vahel, kuid LTE\=/M spetsifikatsiooni jäeti see sisse, mis tähendab rohkem võimalusi liikuvaid seadmeid jälgivates rakendustes.
+    Täpsemini on NB\=/IoT optimeerimiste seas välja jäetud seadme üleandmine tugijaamade vahel, kuid LTE\=/M spetsifikatsiooni jäeti see sisse, mis tähendab rohkem võimalusi liikuvaid seadmeid jälgivates rakendustes~\cite{xuyao}.
 
     Litsentseerimata sagedusvahemikele on loodud hulganisti standardeid, millest annavad hea ülevaate Raza jt~\cite{raza}, kuid mille põhjalik käsitlus jääb käesoleva töö skoobist välja.
     Huvitavam ja teiste seas laiemat kasutuselevõttu kogenud tehnoloogia on Ingenu RPMA, mis erineb teistest \SI{2.4}{\giga\hertz} sagedusala kasutamise tõttu, mis ühtlasi võimaldab võrdlemisi regulatsioonivaba kasutust kõikides maailma piirkondades~\cite{queralta2019comparative}.
@@ -539,7 +539,7 @@
             \midrule
             \footnotesize{allalink} & \footnotesize{\makecell{ainult vastusena \\ üleslingile, $8$ baiti}} & jah & jah & jah & jah \\
             \midrule
-            \footnotesize{päevane kvoot} & \footnotesize{\makecell{olenevalt teenuspaketist, \\ kuid mitte rohkem kui \\ 140 üleslink ja \\ 4 allalink}} & \footnotesize{\makecell{teenusepakkuja \\ poolt sätestatud}} & \multicolumn{2}{c}{ei kehti} & - \\
+            \footnotesize{päevane kvoot} & \footnotesize{\makecell{olenevalt teenuspaketist, \\ kuid mitte rohkem kui \\ 140 üleslink ja \\ 4 allalink}} & \footnotesize{\makecell{teenusepakkuja \\ sätestatud}} & \multicolumn{2}{c}{ei kehti} & - \\
             \midrule
             \footnotesize{\makecell{krüpteeritud \\ andmevahetus}} & ei & \footnotesize{\makecell{jah, seadmepõhise \\ võtmega (ABP) või \\ käepigistusega kokku- \\ lepitud võtmega (OTAA)}} & \multicolumn{2}{c}{\footnotesize{\makecell{LTE turvamehhanismid}}} & \footnotesize{\makecell{jah}} \\
             \midrule
@@ -607,7 +607,7 @@
     Nimetatud teenused võimaldavad pärida ülekande kohta järgmiseid metaandmeid:
     \begin{itemize}
         \item sõnumit kuulnud tugijaamade identifikaatorid,
-        \item sõnumit teenindava tugijaama RSSI (\textit{received signal strength indicator}) ja SNR (\textit{signal to noise ratio}) indikaatorid (NORAneti puhul ka teiste, sõnumit kuulnud jaamade omad),
+        \item sõnumit teenindava tugijaama RSSI (\textit{received signal strength indicator}) ja SNR (\textit{signal-to-noise ratio}) indikaatorid (NORAneti puhul ka teiste, sõnumit kuulnud jaamade omad),
         \item LoRaWANi põhiste teenuste puhul ka kasutatud laotustegur ning sagedus.
     \end{itemize}
     Ühegi teenusepakkujaga pole tehtud täiendavaid kokkuleppeid täpsematele parameetritele ligi pääsemiseks ning kõik katsetel mõõdetavad väärtused on kättesaadavad või tuletatavad ainult selle info põhjal, mida peetakse vajalikuks teenuse tarbijale avaldada.
@@ -630,7 +630,7 @@
     Edasistes alapeatükkides tutvustatakse kasutatavat riistvara ja katsete läbi viimise keskkondi.
     Esimeses alapeatükis keskendutakse kasutatavale arendusplaadile, mis simuleerib lõppseadet IoT kontekstis.
     Seejärel kirjeldatakse alternatiivset lahendust LPWANi leviala tagamiseks, luues oma LoRaWANi tugijaam.
-    Kolmandas alapeatükis kirjeldatakse katsealuseid tingimusi ja tuuakse välja tähtsamad häirivad tegurid iga katsekeskkonna puhul.
+    Kolmandas alapeatükis kirjeldatakse katsealuseid tingimusi ja tuuakse välja tähtsamad side häirivad tegurid iga katsekeskkonna puhul.
 
     \subsection{Arendusplaat FiPy}
 
@@ -702,7 +702,7 @@ class SigfoxNode:
     \label{fig:codesigfox}
     \end{figure}
 
-    LoRaWAN protokollile keskkonna ülesseadmine Pycomi liidesega nõuab seevastu rohkem parameetreid.
+    LoRaWAN protokollile keskkonna ülesseadmine Pycomi raamistikus nõuab seevastu rohkem parameetreid.
     Eelnevalt tuleb kasutatavale seadmele hankida identifikaatorid ja vajalikud võtmed valitud teenusepakkuja veebikeskkonnast.
     Spetsifikatsioon võimaldab võrku ühendamist kahe autentimisviisiga: käepigistusega (OTAA ehk \textit{Over The Air Authentication}) või eelnevalt isikustatud (ABP ehk \textit{Authentication By Personalisation}) viisidel.
     NORAneti puhul kasutati OTAA varianti (joonis~\ref{fig:codenoranet}), mille puhul lepitakse side krüpteerimiseks kasutatav sessioonivõti kokku ühendamisel.
@@ -781,6 +781,7 @@ class NORAnetNode:
     Tugijaam on lisaks varustatud lühikese isotroopilise LoRa antenniga ja ekraaniga ning on koos akutoitega ilmastikukindlas karbis, et seda oleks lihtne välioludes rakendada (joonis~\ref{fig:omatugijaam}).
     Mikrokontroller on programmeeritud avalikust repositooriumist pärineva koodiga\footnote{\url{https://github.com/things4u/ESP-1ch-Gateway}}, mis võimaldab tööajal kaudset konfigureerimist ja monitoorimist üle veebi.
     Rakendusserverina kasutab seade TTN avalikku võrku.
+    Katsetugijaam on lihtsasti teisaldatav erinevatesse kohtadesse ning pääseb võrku läbi kaasasoleva WiFi pääsupunkti, mis on omakorda ühendatud LTE modemiga.
 
     \begin{figure} [htbp]
         \begin{tabular}{c c}
@@ -796,8 +797,7 @@ class NORAnetNode:
         \label{fig:omatugijaam}
     \end{figure}
 
-    Katsetugijaam on lihtsasti teisaldatav erinevatesse kohtadesse ning pääseb võrku läbi kaasasoleva WiFi pääsupunkti, mis on omakorda ühendatud LTE modemiga.
-    Oluline on märkida, et tugijaam pole riistvarast tingitud piirangute tõttu täielikult LoRaWAN spetsifikatsioonile vastav ning on seetõttu sobiv vaid prototüüpimiseks.
+    Oluline on märkida, et tugijaam pole riistvarast tingitud piirangute tõttu täielikult LoRaWANi spetsifikatsioonile vastav ning on seetõttu sobiv vaid prototüüpimiseks.
     Erinevus täisväärtusliku tugijaamaga tuleneb transsiivermoodulist, mis on töökindel korraga teenindama vaid ühel kanalil ja laotusteguril.
     Sellise lahenduse mastaapne kasutamine võib liigselt koormata kitsast vahemikku 868 MHz sagedusest ning tekitada ebaproportsionaalselt häireid teiste sama piirkonna LoRa rakenduste töös.
     Erinevus kajastub ka hinnaklassis — täisvõimekusega LoRa modemi maksumus algab 120 eurost\footnote{\url{https://shop.imst.de/wireless-modules/lora-products/8/ic880a-spi-lorawan-concentrator-868-mhz} (10.04.2020)}, kuid töös kasutatava tugijaama SX1276 mooduli hind on umbes viis eurot.
@@ -832,7 +832,7 @@ class NORAnetNode:
 
     Eraldiseisvalt uuritakse veel andmete kogumist transporditavalt tugijaamalt.
     Testide puhul näeb see ette nii tugijaama kui lõppseadme asetsemist maapinna ligidal või muudes ebasoodsates oludes.
-    Antud katseid saab läbi viia vaid tehnoloogiaga, mille saatjad ja vastuvõtjad on üldsusele kättesaadavad -- käesolevas töös tähendab see loodud LoRaWANi tugijaama ja FiPy lõppseadet.
+    Kõnealuseid katseid saab läbi viia vaid tehnoloogiaga, mille saatjad ja vastuvõtjad on üldsusele kättesaadavad -- käesolevas töös tähendab see loodud LoRaWANi tugijaama ja FiPy lõppseadet.
 
     Plaanitud katsemetoodika sarnaneb linna- ja maapiirkonnakatsetele, mille puhul tehakse mõõtmisi statsionaarse tugijaama suhtes erinevatelt kaugustelt.
     Katsetatavaid stsenaariumeid on kokku kaks: tugijaam korteri tualettruumi valamukapis veearvestil ning kortermaja prügikonteinerite läheduses.
@@ -865,7 +865,7 @@ class NORAnetNode:
 
     Järgnevatel joonistel on side kvaliteeti tähistatud viie palli skaalal, mis on välja kujundatud vastavalt ülekande kohta üles märgitud näitajate alusel.
     Skaala määramisel on juhindutud võimalusel varasematest töödest ja ametlikest allikatest.
-    Sigfoxi puhul on täpne juhis välja toodud dokumentatsioonis\footnote{\url{https://support.sigfox.com/docs/link-quality:-general-knowledge}}, NB\=/IoT signaali tugevust hindamaks on sobiv skaala välja toodud Poddari poolt~\cite{poddar2020}.
+    Sigfoxi puhul on täpne juhis välja toodud dokumentatsioonis\footnote{\url{https://support.sigfox.com/docs/link-quality:-general-knowledge}}, NB\=/IoT signaali tugevust hindamaks on sobiva skaala välja toonud Poddar~\cite{poddar2020}.
     LoRa signaali hindamisel puudub kokkuleppeline skaala, kuid määratakse testide käigus kujunenud mustrite põhjal, arvestades eelkõige, et nõrgeim edukalt vastu võetud sõnum oli tugevusega \SI{-122}{\deci\belm}.
     Skaala on üksikasjalikult välja toodud tabelis~\ref{tab:levid}.
 
@@ -933,7 +933,7 @@ class NORAnetNode:
 
     Selgemini saab võrrelda Sigfoxi ja NORAneti.
     Sügavamates nõgudes ja metsades esines NORAneti võrgus paketikadu ning mitmel korduskatsel oli näha, et side töötas oma võimekuse piiril, raporteerides \SI{-122}{\deci\belm} vastuvõetud signaalitugevust ning SNR väärtusega $-17$ ehk raadiomüra tasemest 17-kordselt nõrgemat signaali.
-    Sigfoxi puhul asetseb lävi palju kõrgemal -- kõige nõrgem saavutatud ülekanne antud raadiuses oli \SI{-132}{\deci\belm} ning paketikadu ei täheldatud.
+    Sigfoxi puhul asetseb lävi palju kõrgemal -- kõige nõrgem saavutatud ülekanne selles raadiuses oli \SI{-132}{\deci\belm} ning paketikadu ei täheldatud.
     Kaugemad katsed Otepäält näitasid paremini Sigfoxi piire, kus kuppelmaastiku vahel metsas töötas side paketikaoga ning siseruumis katkes ühendus täielikult.
 
     Erinevalt kolmest teenusvõrgust, on oma tugijaama lahendusel vaid üks keskne pääsupunkt, mistõttu sai kontrollitumalt kombata levikauguse piire, ilma et seade mõne muu jaamaga haakuks.
@@ -954,7 +954,7 @@ class NORAnetNode:
     \end{figure}
 
     Linnatänavatel oli paiku kokku seitse (joonis~\ref{fig:annelinn}).
-    LoRa puhul võis ka Annelinna majade vahel leida leviauke nii NORAneti kui oma tugijaamaga, kusjuures oma tugijaam kaotas side juba vähimagi hoonestuse varjega pooleteise kilomeetriselt distantsilt.
+    LoRa puhul võis Annelinna majade vahel leida leviauke nii NORAneti kui oma tugijaamaga, kusjuures oma tugijaam kaotas side juba vähimagi hoonestuse varjega pooleteise kilomeetriselt distantsilt.
     Sigfoxi jaoks oli Annelinn tugijaamadega varustatavust arvestades keerulistes tingimustes, kuid sellegipoolest ei tuvastatud välitingimustes paketikadu, isegi kui ühes asukohas vaibus vastuvõetud signaal tugevuseni \SI{-141}{\deci\belm}.
     NB\=/IoT välitingimustel probleeme ei tekitanud ning üleslink latents püsis kindlalt 0,3--0,5 sekundi vahemikus.
 
@@ -1028,10 +1028,10 @@ class NORAnetNode:
     GPS mooduliga lõppseadme võib kinnitada masinapargi masinatele, tähtsatele tarnitavale kaupadele, dementsuspõdejale või koduloomale, et jälgida nende asukohta.
     Sealjuures on NORAnet tõenäoliselt parem jälgima Eesti-siseseid liikumisi ja Sigfox Euroopa-siseseid vedusid, sest kumbki ei oma nendes piirkondades rändlusprobleeme, kuid arvestada tuleb hõreda infrastruktuuriga ja leviaukudega mõlemal juhul.
     Tarku tervisesensoreid saab rakendada nii inimestel kui kariloomadel, juhul kui on veendutud teenuse levialas inimese koduruumides või loomadel kogu nende karjamaa ulatuses.
-    Kusjuures ühe karjamaa piires kõlbaks kasutuseks ka ise tehtud LoRaWAN lahendus.
+    Kusjuures ühe karjamaa piires kõlbaks kasutuseks ka ise tehtud LoRaWANi tugijaama lahendus.
 
     Väga kriitiliste tervisehäirete jaoks ei ole soovitatav kasutada kumbagi vaba sagedusala põhist LPWANi, sest hetkeseisuga pole nende infrastruktuurid ja teenuse kvaliteet nii usaldusväärsed kui mobiilsideteenustel.
-    Katsetamisel liikumiselt tuli aga ilmsiks, et NB\=/IoT ei suuda peale esmast ühendamist sidemastiga end ümber ühendada juhul kui nimetatud masti levialast väljutakse, vaid vajab manuaalset taasühendumist võrku.
+    Katsetamisel liikumiselt tuli aga ilmsiks, et NB\=/IoT ei suuda peale esmast ühendamist sidemastiga end teise külge ümber ühendada juhul kui nimetatud masti levialast väljutakse, vaid vajab manuaalset taasühendumist võrku.
     Võrku ühendumine võttis katsetel aega suurusjärgus 20 sekundit, mille jooksul ei saa seade olulisi sõnumeid üle kanda.
     Potentsiaalset lahendust sellele probleemile pakub LTE\=/M tehnoloogia, mis võimaldab traditsioonilise mobiilside kombel mastide üle andmist, kuid selle leviala Tartus veel puudub.
     Eelmises lõigus kirjeldatud vähemkriitilistele rakendustele sobib ka NB\=/IoT, mis pakub tulemuste põhjal ka paremat katvust, kuid arvestada tuleb suure latentsilisaga.
@@ -1065,7 +1065,7 @@ class NORAnetNode:
     LoRaWAN on kolmest kõige paindlikum ning sobilik ka eksperimentaalseteks kasutusjuhtudeks, mis vajavad liikuvat tugijaama, madalat latentsi või nii üles- kui allalink kommunikatsiooni.
 
     Edasisteks uurimusteks sobivad hästi aspektid, mida käesoleva töö katsetes ei vaadeldud.
-    Suurte sensorvõrkude tarbeks oleks oluline analüüsida tehnoloogiate võimet skaleeruda või seda, kuidas tehnoloogiad on mõjutatud teiste tehnoloogiate poolt tekitatud raadiohäiretest samas sagedusalas.
+    Suurte sensorvõrkude tarbeks oleks oluline analüüsida tehnoloogiate võimet skaleeruda või seda, kuidas tehnoloogiad on mõjutatud teiste tehnoloogiate tekitatud raadiohäiretest samas sagedusalas.
     Eraldi võib keskenduda ühele kasutusalale kitsamalt, hinnata võrkude turvalisust või seadmete unetsüklite planeerimise võimalusi voolu säästmiseks.
     Kui tulevikus ka LTE-M või muu LPWAN Eestis laialdaselt kasutusele võetakse, oleks võimalik analoogilisi katseid läbi viia ka nendel.
 
@@ -1191,7 +1191,7 @@ class NBIoTNode:
         try:
             Coap.init(self.ip_addr, service_discovery=True)
         except:
-            None
+            print("COAP initialization failed")
         Coap.register_response_handler(self.nbiot_callback)
 
     def nbiot_send(self):
